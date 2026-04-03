@@ -31,10 +31,17 @@ operation-resume-auto-generate/
 │   └── ...
 ├── resume-prompt.md          # 简历优化顾问提示词
 ├── interview-prompt.md       # 技术面试官提示词
-├── .agent/skills/            # Gemini/Antigravity Skill
+├── .agents/skills/           # Canonical Skill 目录
 │   └── resume-generator/
-│       └── SKILL.md
-└── .agents/skills/           # Cursor/其他 AI 工具 Skill（待添加）
+│       ├── SKILL.md
+│       ├── references/
+│       └── Example -> ../../../Example
+├── .agent/                   # 兼容目录
+│   └── skills/
+│       └── resume-generator -> ../../.agents/skills/resume-generator
+└── .claude/                  # 兼容目录
+    └── skills/
+        └── resume-generator -> ../../.agents/skills/resume-generator
 ```
 
 ## AI 工具 Skill 目录说明
@@ -43,12 +50,13 @@ operation-resume-auto-generate/
 
 | AI 工具 | Skill 目录 | 说明 |
 | ------- | ---------- | ---- |
-| Gemini / Antigravity | `.agent/skills/` | 已配置，包含 `resume-generator` Skill |
-| Cursor | `.agents/skills/` | 目录已创建，可添加对应格式的 Skill |
+| Gemini / Antigravity | `.agent/skills/` | 已配置，通过 link 复用 `.agents/skills/resume-generator` |
+| Claude | `.claude/skills/` | 已配置，通过 link 复用 `.agents/skills/resume-generator` |
+| Cursor / Codex 风格 | `.agents/skills/` | 已配置，`resume-generator` 采用标准 skill 结构并带 `references/` |
 | GitHub Copilot | `.github/copilot-instructions.md` | 可使用 `resume-prompt.md` 内容 |
 | 其他 AI 工具 | - | 可直接使用 `resume-prompt.md` 和 `interview-prompt.md` |
 
-如需为其他 AI 工具添加 Skill，可参考 `.agent/skills/resume-generator/SKILL.md` 的格式进行适配。
+如需为其他 AI 工具添加 Skill，可参考 `.agents/skills/resume-generator/SKILL.md` 的结构进行适配；根目录资源通过 skill 内的 link 暴露给 `references/` 和 `Example/`。
 
 ## 项目模板
 
