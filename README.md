@@ -1,150 +1,288 @@
 # 运维简历自动生成器
 
-基于运维技能等级白皮书，自动生成符合 STAR 法则的简历项目描述，并进行深度模拟面试演练。
+> 三个 AI Skill 串起来：**写简历 → 模拟面试 → 复盘补课**，覆盖运维/SRE 求职的完整链路。
 
-## 项目简介
+写简历卡壳、面试完只记得"答得不太好但不知道差在哪"、想刷题没方向——本项目就是为这三件事造的。
 
-本项目旨在帮助运维/SRE工程师快速生成高质量的简历项目描述。通过结合 DevOps 能力分级模型，展示从低级到高级的能力演进过程（如 Level 1 → Level 3）。
+核心差异不是又一个简历模板，而是**用工程化方式把面试当一场实验**：每场模拟面试是一个按 schema 结构化的数据点，累积几场后跑 `interview-summary` 横向聚合，**反复出现 2+ 次的卡壳点才是真问题**，单次状态波动会被自动过滤。
 
-### 核心功能
+---
 
-- **简历生成**：基于 STAR 法则生成专业简历，包含技术视角和业务痛点视角
-- **PDCA 拆解**：使用 Mermaid 流程图展示项目实施过程
-- **模拟面试**：钻孔式三层递进提问，涵盖技术深度与软技能
-- **个性化定制**：根据求职者的技能和技术栈生成定制化内容
+## 它能做什么
+
+### 1. `resume-generator` — 写简历
+
+基于 STAR 法则 + PDCA 思维工具，针对 10 个运维项目模板和 44 个能力等级文件，为你生成"技术演进视角"和"业务痛点视角"两份叙事。
+
+**输出片段示例**（来自 [`Example/示例-简历_张三-技术视角.md`](Example/示例-简历_张三-技术视角.md)）：
+
+```markdown
+**项目名称**: 企业级持续交付平台建设
+**技术栈**: Jenkins, Docker, Kubernetes, Harbor, GitLab, Helm, Prometheus, Grafana
+**能力等级**: DevOps Level 1 → Level 3
+
+### Situation
+公司核心业务系统 32 个微服务，日均交易量 150 万笔。
+交付体系停留在 Level 1：SSH + SCP + Shell 手工启动...
+
+| 指标 | 现状 | 行业基准 |
+|---|---|---|
+| 部署频率 | 2-3 次/月 | 日级 |
+| 单次部署耗时 | 4-6 小时 | <30 分钟 |
+| 部署成功率 | 65% | >95% |
+```
+
+完整两份简历：[技术视角](Example/示例-简历_张三-技术视角.md) · [业务痛点视角](Example/示例-简历_张三-业务痛点视角.md)
+
+### 2. `mock-interview` — 实战化模拟面试
+
+扮演资深 SRE 面试官，**面试前先做 6 维加权匹配度评分**（0-100，<60 强警告偏差过大），通过后按钻孔式三层递进出题、追问、评分。每问完一题立刻落盘——**卡壳原话逐字保留，禁止改写**。
+
+**输出片段示例**（实时落盘到 `interviews/2026-05-08-bytedance-sre-p6.md`，**按 L1/L2/L3 分层落盘**）：
+
+```markdown
+---
+schema_version: v1
+source: mock
+jd_company: 字节跳动
+jd_role: SRE
+match_score: 82
+match_recommendation: 推荐
+dimensions: [K8s 排障, Prometheus, 系统设计, 表达能力]
+status: completed
+question_count: 8
+---
+
+## Q1 · K8s 排障 · Pod CrashLoopBackOff 排查链路
+
+**L1 · 基础认知**
+- 提问：线上一个 Java 微服务 Pod 反复 CrashLoopBackOff，已重启 7 次。你按什么顺序排查？
+- 回答要点：先 kubectl logs 看异常堆栈，再 describe pod 看事件
+- 卡壳原话：> "呃……我一般先 logs 看异常堆栈，events 那个……说实话不太常看"
+
+**L2 · 深入细节**
+- 追问：events 在排查里能告诉你什么 logs 看不到的信息？为什么应该排在 logs 之前？
+- 回答要点：想了下能看到调度阶段错误、镜像拉取失败、挂卷失败这些；确实应该放前面
+- 卡壳原话：> "events 这个我一般不看，今天想了下确实关键"
+
+**L3 · 边界场景**
+- 追问：如果 Pod 在调度或拉镜像阶段就挂了，logs 是空的，怎么诊断？`kubectl logs --previous` 你用过吗？
+- 回答要点：那只能看 events；--previous 第一次听说
+- 卡壳原话：> "Pod 还没启动 logs 是空的这个我没想过"
+
+**本题评分**：2/5（L1 工具对但顺序错；L2 提示后能补；L3 直接断）
+```
+
+> 钻孔式分层的价值：聚合时能算出"L1 通过率 / L2 通过率 / L3 通过率"，比单 score 多一个能力深度维度。同一维度的多场题目对比，更能看出"撑得到几层"这种细粒度信号。
+
+完整记录文件：[字节场](Example/示例-面试记录_字节-sre-p6.md) · [阿里场](Example/示例-面试记录_阿里-sre-p7.md)
+
+### 3. `interview-summary` — **跨场聚合**复盘
+
+**积累 2+ 场面试**后跑一次，把多场记录文件横向打通：聚合维度评分、识别 Top Gaps（出现 ≥2 次的卡壳才是真问题）、对照面试前匹配度 vs 实际表现识别简历水分、生成 P0/P1/P2 补课优先级。
+
+输出到独立的聚合文件 `interviews/{YYYY-MM-DD}-summary.md`，**不修改任何记录文件**（记录文件 status: completed 后冻结）。同日重新跑加 `-v2`/`-v3` 后缀保留版本。
+
+**输出片段示例**（来自 [`Example/示例-面试总结_张三.md`](Example/示例-面试总结_张三.md)，聚合了字节 + 阿里两场）：
+
+```markdown
+---
+included_interviews:
+  - 2026-05-08-bytedance-sre-p6
+  - 2026-05-10-alibaba-sre-p7
+time_range: 2026-05-08 ~ 2026-05-10
+interview_count: 2
+overall_score: 2.8
+dimension_scores: {系统设计: 2.5, 混沌工程: 1.0, K8s 排障: 2.7, ...}
+tags: [system-design-weak, chaos-engineering-weak, overestimated, small-sample]
+---
+
+## 一、维度评分（跨场聚合）
+| 维度 | 得分 | 出现场数 | 简评 |
+|---|---|---|---|
+| 系统设计 | 2.5/5 | **2/2** | 系统性短板。容量预估和异地多活两条都断 |
+| 混沌工程 | 1.0/5 | 1/2 | 零经验，仅停留在名词级了解 |
+
+## 四、卡壳点回顾（按维度归类，原话保留 + 来源标注）
+- **系统设计**
+  - [2026-05-08 字节 Q6] > "Thanos 我只读过文档，没实际部过"
+  - [2026-05-10 阿里 Q7] > "影子表那块我大概知道思路，但实际没操作过"
+
+## 六、补课优先级（按 ROI 排序）
+| 优先级 | 主题 | 为什么优先 | 建议动作 |
+|---|---|---|---|
+| P0 | 系统设计方法论体系化 | 跨 2 场维度 2.5，P6/P7 通杀项 | DDIA 第 1/5/9 章 + System Design Vol.1 精读 5 道大题 |
+| P0 | 混沌工程从 0 到 1 | 阿里 P7 加分项 1/5，简历空白 | ChaosBlade 跑通 5 个故障注入场景 |
+```
+
+---
+
+## 快速开始
+
+如果你在用 Claude Code / Cursor / Gemini 等支持 Skill 的 AI 助手，对话里直接描述：
+
+```
+我是 5 年经验的运维工程师，熟悉 Kubernetes、Prometheus、Jenkins，
+想生成 CI/CD 相关的简历项目，再针对字节跳动 SRE P6 的 JD 做一场模拟面试。
+```
+
+AI 助手会自动按 3 个 skill 串联（注意 interview-summary 不是每场跑、是累积几场再跑）：
+
+```
+resume-generator  →  mock-interview  →  mock-interview  →  ... →  interview-summary
+   生成简历           面 1 场（字节）       面 2 场（阿里）           跨场聚合复盘
+                      → 1 份记录文件        → 1 份记录文件             → 1 份聚合文件
+                                                                       (吃 N 个记录)
+```
+
+每一步可独立使用。`interview-summary` 强制要求 ≥2 场记录才能跑——单场不足以聚合，结论会有偏差。
+
+---
+
+## 设计哲学
+
+这套设计有几个非显然的决策，是它跟"又一个简历模板"的本质区别。
+
+### 为什么拆三个 Skill 而不是一个大 prompt
+
+- **职责单一**：`resume-generator` 只产简历，`mock-interview` 只写记录，`interview-summary` 只做跨场聚合。任何一步坏了不影响其他两步
+- **可离线复用**：写完简历几个月后想再面试，单独跑 `mock-interview` 就行；面试完一阵子再回头复盘，独立跑 `interview-summary` 即可
+- **数据时间不对称**：单场面试是"事件"（立刻产生），但跨场聚合是"事实回顾"（积累后才有意义）——拆开后两件事的时间节奏可以各自顺其自然
+- **未来可扩展**：第 4 个 skill 计划是 `real-interview-import`（接真实面试的录音/转写），输出同样符合 SCHEMA 的记录文件，`interview-summary` 一行不用改就能把"真实场 + 模拟场"一起聚合
+
+### 为什么有一份 SCHEMA.md 作为契约
+
+`interviews/SCHEMA.md` 定义了所有 front matter 字段的名字、类型、写入协议。三个 skill 都明确写"以此文件为唯一真相"。
+
+这样做的好处是：未来想加新字段、改聚合逻辑、甚至换一个 AI 工具实现 skill，**字段契约不变就不会破坏历史数据**。
+
+### 为什么卡壳原话必须逐字保留
+
+事后回忆会自动美化——你会把"呃……那个 federation 我只听过没用过"记成"federation 不太熟"。但前者才是真实的能力短板信号，后者是已经被你大脑过滤过的版本。
+
+模拟面试这个场景的最大价值不是"今天得了几分"，而是**拿到事后无法重建的原始数据**。所以本项目把这条写成 mock-interview 的硬约束。
+
+### 为什么面试前要做匹配度评分
+
+省时间。如果简历跟目标 JD 偏差过大（<60 分），跑完一场面试只会得到"啥都不会"的结论，没价值。匹配度评分相当于面试前的"准入门槛"，让你把时间花在真正能转化的机会上。
+
+---
 
 ## 项目结构
 
 ```
 operation-resume-auto-generate/
-├── README.md                 # 项目说明（本文件）
-├── Example.md                # 项目模板（10个运维项目）
-├── Project-Skills/           # 能力模型（44个文件）
-│   ├── 部署流水线.md
-│   ├── 监控可视化及通知.md
-│   ├── 变更管理.md
-│   └── ...
-├── Example/                  # 示例输出
-│   ├── 持续交付简历_技术视角.md
-│   ├── 持续交付简历_业务痛点视角.md
-│   ├── 面试问答_持续交付平台_Part1.md
-│   └── ...
-├── resume-prompt.md          # 简历优化顾问提示词
-├── interview-prompt.md       # 技术面试官提示词
-├── .agents/skills/           # Canonical Skill 目录
-│   └── resume-generator/
-│       ├── SKILL.md
-│       ├── references/
-│       └── Example -> ../../../Example
-├── .agent/                   # 兼容目录
-│   └── skills/
-│       └── resume-generator -> ../../.agents/skills/resume-generator
-└── .claude/                  # 兼容目录
-    └── skills/
-        └── resume-generator -> ../../.agents/skills/resume-generator
+├── README.md
+├── Example.md                # 10 个运维项目模板（skill 内部参考数据）
+├── Project-Skills/           # 44 个能力等级文件（skill 内部参考数据）
+├── Example/                  # 5 份示例文件（虚构候选人「张三」端到端样例）
+│   ├── 示例-简历_张三-技术视角.md
+│   ├── 示例-简历_张三-业务痛点视角.md
+│   ├── 示例-面试记录_字节-sre-p6.md      # mock-interview 产出形态
+│   ├── 示例-面试记录_阿里-sre-p7.md
+│   └── 示例-面试总结_张三.md             # interview-summary 跨场聚合产出
+├── interviews/               # 真实面试数据（gitignored，含卡壳原话）
+│   └── SCHEMA.md             # 字段契约（入库；记录文件 + 聚合文件两种 schema）
+├── skills/                   # Canonical Skill 目录（非隐藏）
+│   ├── resume-generator/SKILL.md
+│   ├── mock-interview/SKILL.md
+│   └── interview-summary/SKILL.md
+├── .agents/skills/           # symlink → ../../skills/* （Cursor / Codex）
+├── .agent/skills/            # symlink → ../../skills/* （Gemini / Antigravity）
+└── .claude/skills/           # symlink → ../../skills/* （Claude）
 ```
 
-## AI 工具 Skill 目录说明
+Canonical 位置统一在 `skills/`（非隐藏），3 个隐藏目录通过 symlink 复用同一份内容，避免多副本漂移。如需为其他 AI 工具新增入口，建对应目录的 symlink 指向 `skills/` 即可。
 
-不同的 AI 工具使用不同的 Skill 目录结构：
+---
 
-| AI 工具 | Skill 目录 | 说明 |
-| ------- | ---------- | ---- |
-| Gemini / Antigravity | `.agent/skills/` | 已配置，通过 link 复用 `.agents/skills/resume-generator` |
-| Claude | `.claude/skills/` | 已配置，通过 link 复用 `.agents/skills/resume-generator` |
-| Cursor / Codex 风格 | `.agents/skills/` | 已配置，`resume-generator` 采用标准 skill 结构并带 `references/` |
-| GitHub Copilot | `.github/copilot-instructions.md` | 可使用 `resume-prompt.md` 内容 |
-| 其他 AI 工具 | - | 可直接使用 `resume-prompt.md` 和 `interview-prompt.md` |
+## AI 工具适配
 
-如需为其他 AI 工具添加 Skill，可参考 `.agents/skills/resume-generator/SKILL.md` 的结构进行适配；根目录资源通过 skill 内的 link 暴露给 `references/` 和 `Example/`。
+| AI 工具 | Skill 目录 | 状态 |
+|---|---|---|
+| Claude Code / Claude.ai | `.claude/skills/` | symlink 已配置 |
+| Cursor / Codex 风格 | `.agents/skills/` | symlink 已配置 |
+| Gemini / Antigravity | `.agent/skills/` | symlink 已配置 |
+| GitHub Copilot | `.github/copilot-instructions.md` | 可手动引用 `resume-prompt.md` |
+| 其他 | — | 直接读 `skills/*/SKILL.md` 作为系统提示词 |
 
-## 项目模板
+> `resume-prompt.md` 和 `interview-prompt.md` 是项目早期的单文件提示词版本，已被 `skills/` 取代，仅作为不支持 Skill 协议的工具的兼容回退。新用户请优先使用 `skills/`。
 
-共包含 **10个核心项目**，覆盖运维各细分领域：
+---
 
-| 项目   | 领域                      | 演进等级   |
-| ------ | ------------------------- | ---------- |
-| 项目一 | 监控告警智能化平台建设    | 1级 → 3级 |
-| 项目二 | 自动化运维平台建设        | 1级 → 3级 |
-| 项目三 | CI/CD流水线与发布策略建设 | 1级 → 3级 |
-| 项目四 | 事件管理体系建设          | 1级 → 3级 |
-| 项目五 | 变更管理规范化建设        | 1级 → 3级 |
-| 项目六 | 容量管理与成本优化        | 1级 → 3级 |
-| 项目七 | 高可用架构与灾备体系建设  | 1级 → 3级 |
-| 项目八 | 运维度量体系建设          | 1级 → 3级 |
-| 项目九 | CMDB与配置管理中心建设    | 2级 → 3级 |
-| 项目十 | 日志分析与故障定位平台    | 1级 → 3级 |
+## 参考资料
 
-详细内容请查看 [Example.md](Example.md)
+<details>
+<summary><b>10 个运维项目模板</b>（点击展开）</summary>
 
-## 能力模型
+| 项目 | 领域 | 演进等级 |
+|---|---|---|
+| 项目一 | 监控告警智能化平台建设 | 1级 → 3级 |
+| 项目二 | 自动化运维平台建设 | 1级 → 3级 |
+| 项目三 | CI/CD 流水线与发布策略建设 | 1级 → 3级 |
+| 项目四 | 事件管理体系建设 | 1级 → 3级 |
+| 项目五 | 变更管理规范化建设 | 1级 → 3级 |
+| 项目六 | 容量管理与成本优化 | 1级 → 3级 |
+| 项目七 | 高可用架构与灾备体系建设 | 1级 → 3级 |
+| 项目八 | 运维度量体系建设 | 1级 → 3级 |
+| 项目九 | CMDB 与配置管理中心建设 | 2级 → 3级 |
+| 项目十 | 日志分析与故障定位平台 | 1级 → 3级 |
 
-`Project-Skills/` 目录包含 44 个能力等级文件，每个文件定义了该能力从 1-5 级的详细标准。
+详细模板见 [`Example.md`](Example.md)。
 
-### 能力模型文件汇总
+</details>
 
-| 能力模型            | 涉及项目               |
-| ------------------- | ---------------------- |
-| 监控可视化及通知.md | 项目一                 |
-| 异常识别.md         | 项目一                 |
-| 监控数据处理.md     | 项目一、项目十         |
-| 运维场景能力.md     | 项目二                 |
-| 部署流水线.md       | 项目三                 |
-| 事件管理.md         | 项目四                 |
-| 变更管理.md         | 项目三、项目五、项目九 |
-| 容量管理.md         | 项目六                 |
-| 可用性管理.md       | 项目七                 |
-| 度量指标.md         | 项目八                 |
+<details>
+<summary><b>项目方向与推荐模板</b>（点击展开）</summary>
 
-## 使用指南
+| 运维方向 | 推荐项目 |
+|---|---|
+| 监控运维 | 项目一、项目十 |
+| 发布运维 | 项目三、项目五 |
+| 平台运维 | 项目二、项目九 |
+| SRE 方向 | 项目四、项目七、项目八 |
+| 成本运维 | 项目六 |
 
-### 方式一：使用 AI Skill（推荐）
+</details>
 
-如果你使用支持 Skill 的 AI 助手，直接在对话中描述你的需求：
+<details>
+<summary><b>能力模型与项目映射</b>（点击展开）</summary>
 
-```
-我是一名5年经验的运维工程师，熟悉 Kubernetes、Prometheus、Jenkins，
-想生成 CI/CD 相关的简历项目，并进行模拟面试练习。
-```
+`Project-Skills/` 目录含 44 个能力等级文件，每个文件定义该能力 1-5 级的标准。
 
-AI 助手会自动：
+| 能力模型 | 涉及项目 |
+|---|---|
+| 监控可视化及通知 | 项目一 |
+| 异常识别 | 项目一 |
+| 监控数据处理 | 项目一、项目十 |
+| 运维场景能力 | 项目二 |
+| 部署流水线 | 项目三 |
+| 事件管理 | 项目四 |
+| 变更管理 | 项目三、项目五、项目九 |
+| 容量管理 | 项目六 |
+| 可用性管理 | 项目七 |
+| 度量指标 | 项目八 |
 
-1. 采集你的详细技能信息
-2. 推荐适合的项目模板
-3. 生成个性化简历（技术视角 + 业务痛点视角）
-4. 进行模拟面试演练
+</details>
 
-### 方式二：手动参考
+<details>
+<summary><b>字段契约 SCHEMA</b>（点击展开）</summary>
 
-1. 查看 [Example.md](Example.md) 选择 2-4 个项目
-2. 阅读对应的 `Project-Skills/` 能力模型文件
-3. 参考 `Example/` 目录中的示例输出
-4. 使用 `resume-prompt.md` 或 `interview-prompt.md` 配合 AI 工具生成
+两种文件 schema 与写入协议（W1-W6）统一在 [`interviews/SCHEMA.md`](interviews/SCHEMA.md)：
 
-## 输出规范
+- **记录文件**（`{date}-{jd-slug}.md`）：mock-interview 写，含 front matter + 每题 Q&A
+- **聚合文件**（`{date}-summary.md`）：interview-summary 写，含跨场聚合分析；同日重跑加 `-v2`/`-v3`
 
-### 简历要求
+关键约束：
+- 工具选择（W1）：记录文件用 Edit 追加，聚合文件用 Write 一次性写
+- 文件边界（W3）：mock-interview 只写记录、interview-summary 只写聚合，不互相跨写
+- 记录冻结（W4）：`status: completed` 后记录文件永不被任何 skill 修改
+- 聚合版本（W5）：旧聚合文件不删，靠 `-v2`/`-v3` 叠加，保留结论演进
+- 信息不足（W6）：不凭空生成，写 `null` / `N/A` 占位
 
-- 严格遵循 **STAR 法则**（Situation, Task, Action, Result）
-- 使用 **PDCA 循环** + Mermaid 流程图
-- 包含**量化成果指标**
-- **禁止包含代码片段**
+</details>
 
-### 面试题库
-
-- 技术深度与软技能各占 **50%**
-- 每个维度**三层递进提问**
-- 参考回答可使用 Mermaid 流程图辅助说明
-
-## 项目方向推荐
-
-| 运维方向 | 推荐项目               |
-| -------- | ---------------------- |
-| 监控运维 | 项目一、项目十         |
-| 发布运维 | 项目三、项目五         |
-| 平台运维 | 项目二、项目九         |
-| SRE方向  | 项目四、项目七、项目八 |
-| 成本运维 | 项目六                 |
+---
 
 ## License
 

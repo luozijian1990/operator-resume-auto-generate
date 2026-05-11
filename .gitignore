@@ -12,3 +12,10 @@
 # 临时文件
 *.tmp
 *.bak
+
+# 模拟面试记录（含卡壳原话等个人数据，不入库）
+interviews/
+!interviews/SCHEMA.md
+
+# 待办与构思（个人笔记，不入库）
+todo/
