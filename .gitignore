@@ -14,8 +14,11 @@
 *.bak
 
 # 模拟面试记录（含卡壳原话等个人数据，不入库）
-interviews/
+interviews/*
 !interviews/SCHEMA.md
+
+# 真实简历与优化产出（含个人与公司信息，不入库）
+resumes/
 
 # 待办与构思（个人笔记，不入库）
 todo/

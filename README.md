@@ -1,6 +1,6 @@
 # 运维简历自动生成器
 
-> 三个 AI Skill 串起来：**写简历 → 模拟面试 → 复盘补课**，覆盖运维/SRE 求职的完整链路。
+> 四个 AI Skill 串起来：**生成/优化简历 → 模拟面试 → 复盘补课**，覆盖运维/SRE 求职的完整链路。
 
 写简历卡壳、面试完只记得"答得不太好但不知道差在哪"、想刷题没方向——本项目就是为这三件事造的。
 
@@ -34,7 +34,20 @@
 
 完整两份简历：[技术视角](Example/示例-简历_张三-技术视角.md) · [业务痛点视角](Example/示例-简历_张三-业务痛点视角.md)
 
-### 2. `mock-interview` — 实战化模拟面试
+### 2. `resume-optimizer` — 优化已有简历
+
+接受用户已有的 SRE/DevOps/运维简历，不强行套 10 个项目模板。先按 STAR、PDCA、44 个能力模型做诊断，再根据是否提供完整 JD 自动进入通用优化或 JD 对齐优化。
+
+JD 对齐模式会复用 [`shared/match-scoring.md`](shared/match-scoring.md) 的 6 维评分契约，输出优化前匹配度与保守预测目标分。真实简历默认写入 `resumes/`（gitignored），避免个人信息进入示例目录。
+
+适合这种场景：
+
+```markdown
+我已经有一份运维简历，想投字节 SRE P6。帮我先看哪里虚、哪里弱，
+再按这个 JD 改一版，后面我要拿它跑模拟面试。
+```
+
+### 3. `mock-interview` — 实战化模拟面试
 
 扮演资深 SRE 面试官，**面试前先做 6 维加权匹配度评分**（0-100，<60 强警告偏差过大），通过后按钻孔式三层递进出题、追问、评分。每问完一题立刻落盘——**卡壳原话逐字保留，禁止改写**。
 
@@ -77,7 +90,7 @@ question_count: 8
 
 完整记录文件：[字节场](Example/示例-面试记录_字节-sre-p6.md) · [阿里场](Example/示例-面试记录_阿里-sre-p7.md)
 
-### 3. `interview-summary` — **跨场聚合**复盘
+### 4. `interview-summary` — **跨场聚合**复盘
 
 **积累 2+ 场面试**后跑一次，把多场记录文件横向打通：聚合维度评分、识别 Top Gaps（出现 ≥2 次的卡壳才是真问题）、对照面试前匹配度 vs 实际表现识别简历水分、生成 P0/P1/P2 补课优先级。
 
@@ -126,13 +139,13 @@ tags: [system-design-weak, chaos-engineering-weak, overestimated, small-sample]
 想生成 CI/CD 相关的简历项目，再针对字节跳动 SRE P6 的 JD 做一场模拟面试。
 ```
 
-AI 助手会自动按 3 个 skill 串联（注意 interview-summary 不是每场跑、是累积几场再跑）：
+AI 助手会自动按场景选择简历入口，再串到面试和复盘（注意 interview-summary 不是每场跑、是累积几场再跑）：
 
 ```
-resume-generator  →  mock-interview  →  mock-interview  →  ... →  interview-summary
-   生成简历           面 1 场（字节）       面 2 场（阿里）           跨场聚合复盘
-                      → 1 份记录文件        → 1 份记录文件             → 1 份聚合文件
-                                                                       (吃 N 个记录)
+resume-generator / resume-optimizer  →  mock-interview  →  mock-interview  →  ... →  interview-summary
+        生成或优化简历                    面 1 场（字节）       面 2 场（阿里）           跨场聚合复盘
+                                         → 1 份记录文件        → 1 份记录文件             → 1 份聚合文件
+                                                                                          (吃 N 个记录)
 ```
 
 每一步可独立使用。`interview-summary` 强制要求 ≥2 场记录才能跑——单场不足以聚合，结论会有偏差。
@@ -143,18 +156,22 @@ resume-generator  →  mock-interview  →  mock-interview  →  ... →  interv
 
 这套设计有几个非显然的决策，是它跟"又一个简历模板"的本质区别。
 
-### 为什么拆三个 Skill 而不是一个大 prompt
+### 为什么拆多个 Skill 而不是一个大 prompt
 
-- **职责单一**：`resume-generator` 只产简历，`mock-interview` 只写记录，`interview-summary` 只做跨场聚合。任何一步坏了不影响其他两步
+- **职责单一**：`resume-generator` 负责冷启动生成简历，`resume-optimizer` 负责已有简历诊断优化，`mock-interview` 只写记录，`interview-summary` 只做跨场聚合。任何一步坏了不影响其他步骤
 - **可离线复用**：写完简历几个月后想再面试，单独跑 `mock-interview` 就行；面试完一阵子再回头复盘，独立跑 `interview-summary` 即可
 - **数据时间不对称**：单场面试是"事件"（立刻产生），但跨场聚合是"事实回顾"（积累后才有意义）——拆开后两件事的时间节奏可以各自顺其自然
-- **未来可扩展**：第 4 个 skill 计划是 `real-interview-import`（接真实面试的录音/转写），输出同样符合 SCHEMA 的记录文件，`interview-summary` 一行不用改就能把"真实场 + 模拟场"一起聚合
+- **未来可扩展**：后续计划增加 `real-interview-import`（接真实面试的录音/转写），输出同样符合 SCHEMA 的记录文件，`interview-summary` 一行不用改就能把"真实场 + 模拟场"一起聚合
 
 ### 为什么有一份 SCHEMA.md 作为契约
 
-`interviews/SCHEMA.md` 定义了所有 front matter 字段的名字、类型、写入协议。三个 skill 都明确写"以此文件为唯一真相"。
+`interviews/SCHEMA.md` 定义了所有 front matter 字段的名字、类型、写入协议。写入 `interviews/` 的 skill 都必须以此文件为唯一真相。
 
 这样做的好处是：未来想加新字段、改聚合逻辑、甚至换一个 AI 工具实现 skill，**字段契约不变就不会破坏历史数据**。
+
+### 为什么有共享匹配度评分契约
+
+`mock-interview` 和 `resume-optimizer` 都需要评估"简历看起来是否匹配目标 JD"。评分口径统一放在 [`shared/match-scoring.md`](shared/match-scoring.md)，避免一个 skill 说 82 分、另一个 skill 按另一套口径说 70 分。
 
 ### 为什么卡壳原话必须逐字保留
 
@@ -183,8 +200,12 @@ operation-resume-auto-generate/
 │   └── 示例-面试总结_张三.md             # interview-summary 跨场聚合产出
 ├── interviews/               # 真实面试数据（gitignored，含卡壳原话）
 │   └── SCHEMA.md             # 字段契约（入库；记录文件 + 聚合文件两种 schema）
+├── resumes/                  # 真实简历与优化产出（gitignored，不入库）
+├── shared/
+│   └── match-scoring.md      # 简历-JD 6 维匹配度评分契约
 ├── skills/                   # Canonical Skill 目录（非隐藏）
 │   ├── resume-generator/SKILL.md
+│   ├── resume-optimizer/SKILL.md
 │   ├── mock-interview/SKILL.md
 │   └── interview-summary/SKILL.md
 ├── .agents/skills/           # symlink → ../../skills/* （Cursor / Codex）

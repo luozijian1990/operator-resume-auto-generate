@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Optimizer"
+  short_description: "Optimize existing SRE resumes"
+  default_prompt: "使用 $resume-optimizer 诊断并优化我已有的 SRE/运维简历。"
