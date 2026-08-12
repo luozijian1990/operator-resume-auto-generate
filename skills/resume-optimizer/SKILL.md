@@ -237,6 +237,7 @@ JD 对齐模式下：
 
 简历优化完成后，可继续使用：
 
+- `resume-humanizer`（可选）：在不改事实、职责边界和 ATS 关键词的前提下检查模板化表达，生成不覆盖原件的去 AI 版
 - `mock-interview`：用优化版简历和同一份 JD 做模拟面试，验证匹配度预测是否合理
 - `interview-summary`：累积 2 场以上面试后做跨场聚合复盘
 
@@ -245,4 +246,4 @@ JD 对齐模式下：
 - 优化版路径
 - 本次改动的 3-5 个重点
 - JD 对齐模式下的优化前匹配分和预测目标分
-- 下一步建议运行 `mock-interview`
+- 下一步按需运行 `resume-humanizer`，或直接运行 `mock-interview`

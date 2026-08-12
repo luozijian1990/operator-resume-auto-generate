@@ -1,6 +1,6 @@
 # 运维简历自动生成器
 
-> 四个 AI Skill 串起来：**生成/优化简历 → 模拟面试 → 复盘补课**，覆盖运维/SRE 求职的完整链路。
+> 五个 AI Skill 串起来：**生成/优化简历 → 可选终稿去 AI 化 → 模拟面试 → 复盘补课**，覆盖运维/SRE 求职的完整链路。
 
 写简历卡壳、面试完只记得"答得不太好但不知道差在哪"、想刷题没方向——本项目就是为这三件事造的。
 
@@ -47,7 +47,20 @@ JD 对齐模式会复用 [`shared/match-scoring.md`](shared/match-scoring.md) �
 再按这个 JD 改一版，后面我要拿它跑模拟面试。
 ```
 
-### 3. `mock-interview` — 实战化模拟面试
+### 3. `resume-humanizer` — 简历终稿去 AI 化
+
+处理中文运维、SRE、DevOps 和平台工程简历中的模板化 STAR、空泛包装与职责失真风险。它先冻结公司、时间线、技术栈、数字、职责等级和已真实命中的 JD/ATS 关键词，再输出五维风险诊断；只有用户确认改写范围后，才生成不覆盖原件的新版本。
+
+它不会计算“AI 生成概率”，也不会为了增加所谓人味编造踩坑、指标或方案取舍。缺少真实细节时会追问；无法补证的强表述只能保留、降级或删除。
+
+适合这种场景：
+
+```markdown
+这份简历是 AI 帮我整理的，STAR 痕迹太重，面试官一眼就能看出模板感。
+请先检查哪些地方虚、哪些事实要补，不要直接改，也不要动 JD 关键词。
+```
+
+### 4. `mock-interview` — 实战化模拟面试
 
 扮演资深 SRE 面试官，**面试前先做 6 维加权匹配度评分**（0-100，<60 强警告偏差过大），通过后按钻孔式三层递进出题、追问、评分。每问完一题立刻落盘——**卡壳原话逐字保留，禁止改写**。
 
@@ -90,7 +103,7 @@ question_count: 8
 
 完整记录文件：[字节场](Example/示例-面试记录_字节-sre-p6.md) · [阿里场](Example/示例-面试记录_阿里-sre-p7.md)
 
-### 4. `interview-summary` — **跨场聚合**复盘
+### 5. `interview-summary` — **跨场聚合**复盘
 
 **积累 2+ 场面试**后跑一次，把多场记录文件横向打通：聚合维度评分、识别 Top Gaps（出现 ≥2 次的卡壳才是真问题）、对照面试前匹配度 vs 实际表现识别简历水分、生成 P0/P1/P2 补课优先级。
 
@@ -136,19 +149,19 @@ tags: [system-design-weak, chaos-engineering-weak, overestimated, small-sample]
 
 ```
 我是 5 年经验的运维工程师，熟悉 Kubernetes、Prometheus、Jenkins，
-想生成 CI/CD 相关的简历项目，再针对字节跳动 SRE P6 的 JD 做一场模拟面试。
+想生成 CI/CD 相关的简历项目，投递前检查一下模板化风险，
+再针对字节跳动 SRE P6 的 JD 做一场模拟面试。
 ```
 
 AI 助手会自动按场景选择简历入口，再串到面试和复盘（注意 interview-summary 不是每场跑、是累积几场再跑）：
 
 ```
-resume-generator / resume-optimizer  →  mock-interview  →  mock-interview  →  ... →  interview-summary
-        生成或优化简历                    面 1 场（字节）       面 2 场（阿里）           跨场聚合复盘
-                                         → 1 份记录文件        → 1 份记录文件             → 1 份聚合文件
-                                                                                          (吃 N 个记录)
+resume-generator / resume-optimizer  →  [resume-humanizer]  →  mock-interview  →  ... →  interview-summary
+        生成或优化简历                       可选终稿门             面 N 场               跨场聚合复盘
+                                         → 1 份去 AI 版       → N 份记录文件          → 1 份聚合文件
 ```
 
-每一步可独立使用。`interview-summary` 强制要求 ≥2 场记录才能跑——单场不足以聚合，结论会有偏差。
+方括号表示可选步骤；用户明确提出“去 AI 化、太像 AI、太模板化、写得像机器”等需求时再运行。每一步可独立使用。`interview-summary` 强制要求 ≥2 场记录才能跑——单场不足以聚合，结论会有偏差。
 
 ---
 
@@ -158,7 +171,7 @@ resume-generator / resume-optimizer  →  mock-interview  →  mock-interview  �
 
 ### 为什么拆多个 Skill 而不是一个大 prompt
 
-- **职责单一**：`resume-generator` 负责冷启动生成简历，`resume-optimizer` 负责已有简历诊断优化，`mock-interview` 只写记录，`interview-summary` 只做跨场聚合。任何一步坏了不影响其他步骤
+- **职责单一**：`resume-generator` 负责冷启动生成简历，`resume-optimizer` 负责已有简历诊断优化，`resume-humanizer` 负责可选终稿可信度检查，`mock-interview` 只写记录，`interview-summary` 只做跨场聚合。任何一步坏了不影响其他步骤
 - **可离线复用**：写完简历几个月后想再面试，单独跑 `mock-interview` 就行；面试完一阵子再回头复盘，独立跑 `interview-summary` 即可
 - **数据时间不对称**：单场面试是"事件"（立刻产生），但跨场聚合是"事实回顾"（积累后才有意义）——拆开后两件事的时间节奏可以各自顺其自然
 - **未来可扩展**：后续计划增加 `real-interview-import`（接真实面试的录音/转写），输出同样符合 SCHEMA 的记录文件，`interview-summary` 一行不用改就能把"真实场 + 模拟场"一起聚合
@@ -206,6 +219,7 @@ operation-resume-auto-generate/
 ├── skills/                   # Canonical Skill 目录（非隐藏）
 │   ├── resume-generator/SKILL.md
 │   ├── resume-optimizer/SKILL.md
+│   ├── resume-humanizer/SKILL.md
 │   ├── mock-interview/SKILL.md
 │   └── interview-summary/SKILL.md
 ├── .agents/skills/           # symlink → ../../skills/* （Cursor / Codex）

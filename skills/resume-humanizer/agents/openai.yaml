@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Humanizer"
+  short_description: "检查中文运维简历的模板化风险，保护真实事实、职责边界与ATS关键词"
+  default_prompt: "使用 $resume-humanizer 检查我的中文 SRE 简历，先诊断模板化风险，再在我确认后生成自然可信的新版本。"

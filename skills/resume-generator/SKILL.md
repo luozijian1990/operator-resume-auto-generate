@@ -1,6 +1,6 @@
 ---
 name: resume-generator
-description: 基于运维技能等级白皮书，生成符合 STAR 法则的运维/SRE 简历项目描述。用于运维、DevOps、SRE 求职场景下的项目重写与模板匹配。生成完成后可由 mock-interview skill 进行模拟面试演练。
+description: 基于运维技能等级白皮书，生成符合 STAR 法则的运维/SRE 简历项目描述。用于运维、DevOps、SRE 求职场景下的项目重写与模板匹配。生成完成后可由 resume-humanizer 做可选终稿检查，再由 mock-interview 进行模拟面试演练。
 ---
 
 # 运维简历生成 Skill
@@ -160,6 +160,7 @@ description: 基于运维技能等级白皮书，生成符合 STAR 法则的运�
 
 简历生成完成后，可继续使用：
 
+- `resume-humanizer` skill（可选）：检查模板化表达、事实支撑和面试承接风险，确认后生成不覆盖原件的去 AI 版
 - `mock-interview` skill：基于本简历和目标 JD 进行实时模拟面试，过程会落盘到 `interviews/{date}-{jd-slug}.md`
 - `interview-summary` skill：在面试结束后或事后离线，针对 `interviews/*.md` 生成多维度评分与补课计划
 
