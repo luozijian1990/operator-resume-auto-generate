@@ -6,6 +6,53 @@
 
 核心差异不是又一个简历模板，而是**用工程化方式把面试当一场实验**：每场模拟面试是一个按 schema 结构化的数据点，累积几场后跑 `interview-summary` 横向聚合，**反复出现 2+ 次的卡壳点才是真问题**，单次状态波动会被自动过滤。
 
+### 全链路流程图
+
+```mermaid
+flowchart LR
+    subgraph 入口[入口二选一]
+        A[resume-generator<br>冷启动生成简历]
+        B[resume-optimizer<br>已有简历诊断优化]
+    end
+
+    subgraph 数据契约[共享契约]
+        T1[Example.md<br>10 项目模板]
+        T2[Project-Skills/<br>44 能力等级]
+        T3[shared/match-scoring.md<br>6 维匹配评分]
+        T4[interviews/SCHEMA.md<br>字段契约]
+    end
+
+    A --> C[/简历/]
+    B --> C
+    C --> D{需要去 AI 化?}
+    D -- 否 --> F
+    D -- 是 --> E[resume-humanizer<br>终稿可信度检查]
+    E --> F[mock-interview<br>模拟面试 循环 N 场]
+    F --> G[/N 份记录文件/<br>interviews/*.md]
+    G --> H{累计 ≥2 场?}
+    H -- 否 --> F
+    H -- 是 --> I[interview-summary<br>跨场聚合复盘]
+    I --> J[/1 份聚合文件/<br>interviews/*-summary.md]
+    J --> K{发现短板}
+    K -- 补课后 --> F
+    K --> L[P0/P1/P2 补课清单]
+
+    T1 --> A
+    T2 --> A
+    T3 --> B
+    T3 --> F
+    T4 --> F
+    T4 --> I
+```
+
+关键点：
+
+- **入口二选一**：`resume-generator`（没有简历）或 `resume-optimizer`（已有简历）
+- **`resume-humanizer` 是可选项**：只有用户明确提出"去 AI 化"才触发
+- **`mock-interview` 可循环 N 场**，每场落盘一份符合 SCHEMA 的记录文件
+- **`interview-summary` 强制 ≥2 场**才允许聚合，产出 P0/P1/P2 补课清单后闭环回到面试
+- **共享契约层**：评分口径（match-scoring）和字段契约（SCHEMA）贯穿多个 skill
+
 ---
 
 ## 它能做什么
