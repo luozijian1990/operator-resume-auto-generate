@@ -29,7 +29,7 @@ flowchart LR
     D -- 是 --> E[resume-humanizer<br>终稿可信度检查]
     E --> F[mock-interview<br>模拟面试 循环 N 场]
     F --> G[/N 份记录文件/<br>interviews/*.md]
-    G --> H{累计 >=2 场?}
+    G --> H{"累计 >=2 场?"}
     H -- 否 --> F
     H -- 是 --> I[interview-summary<br>跨场聚合复盘]
     I --> J[/1 份聚合文件/<br>interviews/*-summary.md]
