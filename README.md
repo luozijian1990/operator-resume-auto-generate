@@ -18,9 +18,9 @@
 ## 工作流
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/job-search-workflow-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./docs/job-search-workflow-light.svg">
-  <img alt="运维 / SRE 求职训练闭环" src="./docs/job-search-workflow-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-light.svg">
+  <img alt="运维 / SRE 求职训练闭环" src="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-light.svg">
 </picture>
 
 
