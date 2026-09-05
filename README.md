@@ -82,14 +82,17 @@ resume-generator / resume-optimizer
                  ↓
           mock-interview × N
                  ↓
-        interview-answer-coach
-                 ↓
-       interview-summary
+       ┌─────────┴─────────┐
+       ↓                   ↓
+[interview-answer-coach]  interview-summary
+       ↓                   ↓
+   表达训练              能力补课
+       └─────────┬─────────┘
                  ↓
         补课后再次模拟面试
 ```
 
-方括号表示可选步骤。`interview-summary` 至少需要两场已完成的面试记录；单场表现不足以判断一个问题是否是稳定短板。
+`interview-answer-coach` 是可选的单题纵向复盘，不是 `interview-summary` 的前置条件；两者都直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
 
 ## 产出示例
 
@@ -151,7 +154,7 @@ resume-generator / resume-optimizer
 - 没有量化数据时先追问统计口径，不使用模板里的示例数字
 - 去 AI 化的目标是恢复自然、可信、可追问的表达，不是规避检测
 - 已命中且有事实支撑的 JD / ATS 关键词会受到保护
-- 真实简历默认写入 `resumes/`，面试记录默认写入 `interviews/`
+- 真实简历默认写入 `resumes/`，面试记录默认写入 `interviews/`，真实 coaching 结果默认写入 `coaching/` 并默认被 gitignored
 - 上述两个目录均已加入 `.gitignore`，默认不会提交到仓库
 
 > [!WARNING]
@@ -161,11 +164,12 @@ resume-generator / resume-optimizer
 
 ```text
 operation-resume-auto-generate/
-├── skills/                    # 五个 Skill 的唯一维护目录
+├── skills/                    # 六个 Skill 的唯一维护目录
 │   ├── resume-generator/
 │   ├── resume-optimizer/
 │   ├── resume-humanizer/
 │   ├── mock-interview/
+│   ├── interview-answer-coach/
 │   └── interview-summary/
 ├── Project-Skills/            # 44 个运维能力分级模型
 ├── Example/                   # 虚构候选人的端到端产出示例

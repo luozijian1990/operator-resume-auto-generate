@@ -232,9 +232,9 @@ overall_score = sum(每场所有题评分) / sum(所有场题数)
 
 ### 2.9 表达缺口聚合
 
-只有至少 2 场、且同类证据在不同题目或场次重复出现时，才将 `expression-gap` 或 `compressed-reasoning` 纳入 tags、Top Gaps 或长期画像。单题 coaching 结果只作为引用证据，不回写 `interviews/`；一次短回答不足以诊断稳定表达问题。
+只有至少 2 场、且同类证据在不同题目或场次重复出现时，才将 `expression-gap` 或 `compressed-reasoning` 纳入 tags、Top Gaps 或长期画像。默认直接基于 `interviews/` 原始记录中的 L1/L2/L3、回答要点、卡壳原话判断，不读取或依赖 `coaching/*.md`；coaching 是用户单题训练产物，不参与默认聚合计算。单题 coaching 结果不回写 `interviews/`；一次短回答不足以诊断稳定表达问题。
 
-### 2.9 tags
+### 2.10 tags
 
 按 `interviews/SCHEMA.md` 中 tags 命名约定生成：
 

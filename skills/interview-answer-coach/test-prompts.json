@@ -1,5 +1,8 @@
 [
-  {"id":1,"prompt":"面试官问我“系统 QPS 从 1K 涨到 10K 怎么处理”。我回答：先看业务场景，流量通常有业务前兆，可预测时提前扩容并准备限流、降级、异步；无状态后端好扩，DB 等有状态组件更难扩，不能只依赖 KEDA。请判断我是不会，还是没讲清楚，并给我 30 秒和 90 秒版本。","expected":"识别 expression-gap + compressed-reasoning；区分已覆盖、合理展开和真正缺失；不编造项目数字。"},
-  {"id":2,"prompt":"面试题是“如何排查 Kubernetes Pod 的 CrashLoopBackOff”。我的回答只有“看 kubectl logs 和 describe”，追问后我说“events 这块没了解过，Pod 没启动时 logs 为空我也不知道”。请判断 gap 类型并说明依据。","expected":"主要识别 knowledge-gap 或边界缺口，不因短答强行判为 expression-gap。"},
-  {"id":3,"prompt":"请读取 interviews/2026-09-01-sre-p6.md，帮我复盘 Q6，判断初答和 L2/L3 追问之间是否存在 expression-gap，并输出 coaching 文件。","expected":"只读原始记录；引用 Q/L 证据；按 coaching schema 写入独立文件，不修改 interviews。"}
+{"id":1,"name":"expression-gap","prompt":"初答只说先看业务、可预测就提前扩容并准备限流降级异步；追问后能补充 DB 等有状态组件和 KEDA 边界。请判断并给 30/90 秒版本。","expected":"expression-gap + compressed-reasoning，不编造项目或数字。"},
+{"id":2,"name":"knowledge-gap","prompt":"我明确说 CrashLoopBackOff 这个我不知道，追问后仍不知道 events、调度失败和 logs 为空时怎么查。请诊断。","expected":"明确 knowledge-gap。"},
+{"id":3,"name":"hands-on-gap","prompt":"我能解释 Deployment 滚动更新原理，但明确从未在线上或实验环境操作过，也说不出具体回滚实践。请复盘。","expected":"lack-hands-on，不编造线上案例。"},
+{"id":4,"name":"boundary-gap","prompt":"我能说明 Redis 基本缓存处理；追问热 key、雪崩和跨地域一致性时回答没想过。请判断。","expected":"lack-edge-thinking。"},
+{"id":5,"name":"mixed-gap","prompt":"初答只说扩容应用并限流，追问后能补出业务预测、DB 瓶颈和异步削峰，但确实没想到下游请求放大系数。请允许多个 gap。","expected":"expression-gap 或 compressed-reasoning 与真实缺失项并存。"},
+{"id":6,"name":"insufficient-evidence","prompt":"容量规划题只有一句先看看业务再扩容，没有追问记录。请判断能否诊断 gap。","expected":"只能说证据不足或压缩迹象，不能下稳定 gap 结论。"}
 ]

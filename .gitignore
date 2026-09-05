@@ -22,3 +22,11 @@ resumes/
 
 # 待办与构思（个人笔记，不入库）
 todo/
+
+# 单题 Coaching 结果（可能包含真实回答、卡壳原话和个人经历）
+coaching/*
+!coaching/SCHEMA.md
+
+# 单题 Coaching 结果（可能包含真实回答、卡壳原话和个人经历）
+coaching/*
+!coaching/SCHEMA.md
