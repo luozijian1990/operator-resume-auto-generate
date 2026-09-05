@@ -230,6 +230,10 @@ overall_score = sum(每场所有题评分) / sum(所有场题数)
 
 观察跨场的语言特征：填充词频率、结构词缺失、回答耗时、自信度。**只有跨场重复出现的问题才列**——单场只算偶然。
 
+### 2.9 表达缺口聚合
+
+只有至少 2 场、且同类证据在不同题目或场次重复出现时，才将 `expression-gap` 或 `compressed-reasoning` 纳入 tags、Top Gaps 或长期画像。单题 coaching 结果只作为引用证据，不回写 `interviews/`；一次短回答不足以诊断稳定表达问题。
+
 ### 2.9 tags
 
 按 `interviews/SCHEMA.md` 中 tags 命名约定生成：

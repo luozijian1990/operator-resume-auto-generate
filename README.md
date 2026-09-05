@@ -1,6 +1,6 @@
 # 运维 / SRE 求职工作流
 
-> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历生成与优化，到模拟面试，再到跨场复盘和补课计划。
+> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历生成与优化，到模拟面试，再到单题表达训练、跨场复盘和补课计划。
 
 它不只是生成一份简历，而是把求职准备变成一条可以重复运行的闭环：用真实经历写简历，用目标 JD 检验匹配度，用结构化面试记录发现稳定短板，再回到下一轮训练。
 
@@ -29,14 +29,15 @@ flowchart LR
     E -- 否 --> G[mock-interview]
     F --> G
     G --> H[累计 N 场面试记录]
-    H --> I{至少 2 场?}
+    H --> L[interview-answer-coach]
+    L --> I{至少 2 场?}
     I -- 否 --> G
     I -- 是 --> J[interview-summary]
     J --> K[P0 / P1 / P2 补课计划]
     K --> G
 ```
 
-五个 Skill 可以独立使用，也可以串成完整流程：
+六个 Skill 可以独立使用，也可以串成完整流程：
 
 | Skill | 什么时候用 | 主要产出 |
 | --- | --- | --- |
@@ -44,6 +45,7 @@ flowchart LR
 | `resume-optimizer` | 已有简历，需要通用诊断或 JD 对齐 | 诊断报告、用户确认后的优化版简历 |
 | `resume-humanizer` | 简历太模板化、太像 AI | 风险诊断、用户确认后的去 AI 版简历 |
 | `mock-interview` | 准备某个具体岗位的面试 | 匹配度评分、逐题追问和单场面试记录 |
+| `interview-answer-coach` | 某道回答讲不清或复盘已有面试题 | 已覆盖/合理展开/真正缺失、30/90 秒表达版本 |
 | `interview-summary` | 已积累至少 2 场面试记录 | 跨场能力画像、Top Gaps、补课优先级 |
 
 ## 快速开始
@@ -93,7 +95,9 @@ resume-generator / resume-optimizer
                  ↓
           mock-interview × N
                  ↓
-        interview-summary
+        interview-answer-coach
+                 ↓
+       interview-summary
                  ↓
         补课后再次模拟面试
 ```
@@ -181,6 +185,7 @@ operation-resume-auto-generate/
 ├── Example.md                 # 10 个运维项目模板
 ├── shared/
 │   └── match-scoring.md       # 简历-JD 统一评分口径
+├── coaching/                  # 单题 coaching 产出
 ├── interviews/
 │   └── SCHEMA.md              # 面试记录与聚合总结的数据契约
 ├── resumes/                   # 真实简历与改写产出，默认不入库

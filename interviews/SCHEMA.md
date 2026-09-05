@@ -231,6 +231,8 @@ match_breakdown:
 - `lack-edge-thinking` —— L1 ≥ 0.7 且 L2 ≥ 0.5 且 L3 < 0.3，实操扎实缺边界思考，需读 case study
 
 **其他**：
+- `expression-gap` —— 单题证据显示候选人知识高于初答呈现；仅作 coaching 或有充分跨场证据时使用
+- `compressed-reasoning` —— 推理链存在明显 A→D 跳跃；通常与 `expression-gap` 并列
 - 软技能：`communication-ok` / `communication-weak`
 - 匹配度异常：`overestimated`（简历高估自己）/ `underestimated`（简历低估自己）
 - 聚合规模：`small-sample`（< 3 场）/ `large-sample`（≥ 5 场）
