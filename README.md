@@ -17,7 +17,11 @@
 
 ## 工作流
 
-![运维 / SRE 求职训练闭环](docs/job-search-workflow.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/job-search-workflow-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./docs/job-search-workflow-light.svg">
+  <img alt="运维 / SRE 求职训练闭环" src="./docs/job-search-workflow-light.svg">
+</picture>
 
 
 六个 Skill 可以独立使用，也可以串成完整流程：

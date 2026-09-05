@@ -1,0 +1,197 @@
+<svg viewBox="0 0 1053 660" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase">
+        <title id="archify-diagram-title">运维 / SRE 求职训练闭环</title>
+        <desc id="archify-diagram-description">由 Archify 生成的工作流图。</desc>
+        <!-- Definitions -->
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+<style>
+.c-grid{stroke:#334155;fill:none}.c-lane{fill:#172033;stroke:#475569}.c-mask{fill:#0f172a}.c-frontend{fill:#e8f1ff;stroke:#3972c6}.c-backend{fill:#e9f7f0;stroke:#2f8f62}.c-database{fill:#fff3df;stroke:#b87816}.c-cloud{fill:#f0eaff;stroke:#7652b8}.c-security{fill:#ffe9ed;stroke:#bd3f5b}.c-messagebus{fill:#e8f7fa;stroke:#27899a}.c-external{fill:#f1f3f5;stroke:#68737d}.a-default{stroke:#64748b;fill:none}.a-dashed{stroke:#7c3aed;fill:none;stroke-dasharray:5 4}.a-emphasis{stroke:#2563eb;fill:none}.a-security{stroke:#bd3f5b;fill:none}.m-default{fill:#64748b}.m-dashed{fill:#7c3aed}.m-emphasis{fill:#2563eb}.m-security{fill:#bd3f5b}.t-primary{fill:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.t-muted,.t-dim{fill:#cbd5e1;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.semantic-sigil{stroke:#334155;fill:none;stroke-width:2}.sigil-fill{fill:#334155;stroke:none}.s-frontend{color:#3972c6}.s-backend{color:#2f8f62}.s-database{color:#b87816}.s-cloud{color:#7652b8}.c-lane{vector-effect:non-scaling-stroke}</style>
+                </defs>
+
+        <!-- Background Grid -->
+        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <!-- Swimlanes -->
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-0" x="40" y="52" width="997" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / 准备</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="178" width="997" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="200" class="t-dim" font-size="10" font-weight="600">02 / 面试</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="304" width="997" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="326" class="t-dim" font-size="10" font-weight="600">03 / 复盘</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="430" width="997" height="106" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="452" class="t-dim" font-size="10" font-weight="600">04 / 再验证</text>
+
+        <!-- Phase headers -->
+        <line x1="77" y1="35" x2="289" y2="35" class="a-default" stroke-width="1.1"/>
+        <rect x="77" y="27" width="212" height="16" rx="4" class="c-mask"/>
+        <text x="183" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">简历准备</text>
+        <line x1="403.4" y1="35" x2="615.4" y2="35" class="a-default" stroke-width="1.1"/>
+        <rect x="403.4" y="27" width="212" height="16" rx="4" class="c-mask"/>
+        <text x="509.4" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">面试与取证</text>
+        <line x1="729.8" y1="35" x2="999.8" y2="35" class="a-default" stroke-width="1.1"/>
+        <rect x="729.8" y="27" width="270" height="16" rx="4" class="c-mask"/>
+        <text x="864.8" y="39" class="t-muted" font-size="8" font-weight="600" text-anchor="middle">表达与能力改进</text>
+
+        <!-- Workflow groups -->
+
+
+        <!-- Edge paths -->
+        <path data-edge-from="again" data-edge-to="evidence" data-edge-label="新证据" data-edge-key="0" data-composition-points="878.8,498;346.4,498;346.4,246;374.4,246" d="M 878.8 498 L 346.4 498 L 346.4 246 L 374.4 246" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="coach" data-edge-to="summary" data-edge-label="表达证据" data-edge-key="1" data-composition-points="644.4,372;700.8,372" d="M 644.4 372 L 700.8 372" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="evidence" data-edge-to="coach" data-edge-label="单题分析" data-edge-key="2" data-composition-points="449.4,272;449.4,372;494.4,372" d="M 449.4 272 L 449.4 372 L 494.4 372" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="evidence" data-edge-to="summary" data-edge-label="多场聚合" data-edge-key="3" data-composition-points="524.4,246;775.8,246;775.8,338" d="M 524.4 246 L 775.8 246 L 775.8 338" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="mock" data-edge-to="evidence" data-edge-label="事实记录" data-edge-key="4" data-composition-points="243,220;243,204;449.4,204;449.4,220" d="M 243 220 L 243 204 L 449.4 204 L 449.4 220" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="resume" data-edge-to="mock" data-edge-key="5" data-composition-points="123,146;123,246;168,246" d="M 123 146 L 123 246 L 168 246" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="study" data-edge-to="again" data-edge-key="6" data-composition-points="953.8,398;953.8,472" d="M 953.8 398 L 953.8 472" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="summary" data-edge-to="study" data-edge-key="7" data-composition-points="850.8,372;878.8,372" d="M 850.8 372 L 878.8 372" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+
+        <!-- Nodes -->
+        <g id="node-resume" data-node-id="resume" data-node-label="Resume" tabindex="0" role="button" aria-label="聚焦Resume，生成 / 优化 / 去 AI 化, 准备 › 简历准备" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="生成 / 优化 / 去 AI 化" data-node-context="准备 › 简历准备">
+          <title>Resume · 生成 / 优化 / 去 AI 化 · 准备 › 简历准备</title>
+          <rect x="48" y="94" width="150" height="52" rx="6" class="c-mask"/>
+          <rect x="48" y="94" width="150" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(54 100) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="123" y="115" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Resume</text>
+          <text data-detail="context" x="123" y="132" class="t-muted" font-size="8" text-anchor="middle">生成 / 优化 / 去 AI 化</text>
+        </g>
+
+        <g id="node-mock" data-node-id="mock" data-node-label="Mock Interview" tabindex="0" role="button" aria-label="聚焦Mock Interview，真实节奏 + L1/L2/L3, 面试 › 简历准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="真实节奏 + L1/L2/L3" data-node-context="面试 › 简历准备">
+          <title>Mock Interview · 真实节奏 + L1/L2/L3 · 面试 › 简历准备</title>
+          <rect x="168" y="220" width="150" height="52" rx="6" class="c-mask"/>
+          <rect x="168" y="220" width="150" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(174 226) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="243" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Mock Interview</text>
+          <text data-detail="context" x="243" y="258" class="t-muted" font-size="8" text-anchor="middle">真实节奏 + L1/L2/L3</text>
+        </g>
+
+        <g id="node-evidence" data-node-id="evidence" data-node-label="Interview Records" tabindex="0" role="button" aria-label="聚焦Interview Records，原始回答 / 卡壳 / 评分, 面试 › 面试与取证" aria-pressed="false" data-node-kind="database" data-node-sublabel="原始回答 / 卡壳 / 评分" data-node-context="面试 › 面试与取证">
+          <title>Interview Records · 原始回答 / 卡壳 / 评分 · 面试 › 面试与取证</title>
+          <rect x="374.4" y="220" width="150" height="52" rx="6" class="c-mask"/>
+          <rect x="374.4" y="220" width="150" height="52" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(380.4 226) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="449.4" y="241" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Interview Records</text>
+          <text data-detail="context" x="449.4" y="258" class="t-muted" font-size="8" text-anchor="middle">原始回答 / 卡壳 / 评分</text>
+        </g>
+
+        <g id="node-coach" data-node-id="coach" data-node-label="Answer Coach" tabindex="0" role="button" aria-label="聚焦Answer Coach，表达缺口 / 推理展开, 复盘 › 面试与取证" aria-pressed="false" data-node-kind="backend" data-node-sublabel="表达缺口 / 推理展开" data-node-tag="单题" data-node-context="复盘 › 面试与取证">
+          <title>Answer Coach · 表达缺口 / 推理展开 · 复盘 › 面试与取证 · 单题</title>
+          <rect x="494.4" y="338" width="150" height="68" rx="6" class="c-mask"/>
+          <rect x="494.4" y="338" width="150" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(500.4 344) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="569.4" y="359" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Answer Coach</text>
+          <text data-detail="context" x="569.4" y="376" class="t-muted" font-size="8" text-anchor="middle">表达缺口 / 推理展开</text>
+        <text data-detail="fine" x="569.4" y="394" class="t-backend" font-size="7" text-anchor="middle">单题</text>
+        </g>
+
+        <g id="node-summary" data-node-id="summary" data-node-label="Interview Summary" tabindex="0" role="button" aria-label="聚焦Interview Summary，跨场能力画像, 复盘 › 表达与能力改进" aria-pressed="false" data-node-kind="backend" data-node-sublabel="跨场能力画像" data-node-tag="≥ 2 场" data-node-context="复盘 › 表达与能力改进">
+          <title>Interview Summary · 跨场能力画像 · 复盘 › 表达与能力改进 · ≥ 2 场</title>
+          <rect x="700.8" y="338" width="150" height="68" rx="6" class="c-mask"/>
+          <rect x="700.8" y="338" width="150" height="68" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(706.8 344) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="775.8" y="359" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Interview Summary</text>
+          <text data-detail="context" x="775.8" y="376" class="t-muted" font-size="8" text-anchor="middle">跨场能力画像</text>
+        <text data-detail="fine" x="775.8" y="394" class="t-backend" font-size="7" text-anchor="middle">≥ 2 场</text>
+        </g>
+
+        <g id="node-study" data-node-id="study" data-node-label="补课计划" tabindex="0" role="button" aria-label="聚焦补课计划，P0 / P1 / P2, 复盘 › 表达与能力改进" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="P0 / P1 / P2" data-node-context="复盘 › 表达与能力改进">
+          <title>补课计划 · P0 / P1 / P2 · 复盘 › 表达与能力改进</title>
+          <rect x="878.8" y="346" width="150" height="52" rx="6" class="c-mask"/>
+          <rect x="878.8" y="346" width="150" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(884.8 352) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="953.8" y="367" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">补课计划</text>
+          <text data-detail="context" x="953.8" y="384" class="t-muted" font-size="8" text-anchor="middle">P0 / P1 / P2</text>
+        </g>
+
+        <g id="node-again" data-node-id="again" data-node-label="Mock Interview Again" tabindex="0" role="button" aria-label="聚焦Mock Interview Again，再面试验证, 再验证 › 表达与能力改进" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="再面试验证" data-node-context="再验证 › 表达与能力改进">
+          <title>Mock Interview Again · 再面试验证 · 再验证 › 表达与能力改进</title>
+          <rect x="878.8" y="472" width="150" height="52" rx="6" class="c-mask"/>
+          <rect x="878.8" y="472" width="150" height="52" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(884.8 478) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="953.8" y="493" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Mock Interview Again</text>
+          <text data-detail="context" x="953.8" y="510" class="t-muted" font-size="8" text-anchor="middle">再面试验证</text>
+        </g>
+
+        <!-- Edge labels -->
+        <g data-detail="context" data-edge-from="again" data-edge-to="evidence" data-edge-label="新证据" data-edge-key="0">
+          <rect x="593.1999999999999" y="478" width="38.8" height="14" rx="3" class="c-mask"/>
+          <text x="612.5999999999999" y="488" class="t-database" font-size="8" text-anchor="middle">新证据</text>
+        </g>
+        <g data-detail="context" data-edge-from="coach" data-edge-to="summary" data-edge-label="表达证据" data-edge-key="1">
+          <rect x="648.3999999999999" y="352" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="672.5999999999999" y="362" class="t-database" font-size="8" text-anchor="middle">表达证据</text>
+        </g>
+        <g data-detail="context" data-edge-from="evidence" data-edge-to="coach" data-edge-label="单题分析" data-edge-key="2">
+          <rect x="447.7" y="352" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="471.9" y="362" class="t-muted" font-size="8" text-anchor="middle">单题分析</text>
+        </g>
+        <g data-detail="context" data-edge-from="evidence" data-edge-to="summary" data-edge-label="多场聚合" data-edge-key="3">
+          <rect x="625.8999999999999" y="226" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="650.0999999999999" y="236" class="t-muted" font-size="8" text-anchor="middle">多场聚合</text>
+        </g>
+        <g data-detail="context" data-edge-from="mock" data-edge-to="evidence" data-edge-label="事实记录" data-edge-key="4">
+          <rect x="322" y="184" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="346.2" y="194" class="t-muted" font-size="8" text-anchor="middle">事实记录</text>
+        </g>
+
+
+
+
+        <!-- Legend -->
+        <g data-legend="" data-legend-bridge="">
+          <text x="20" y="560" class="t-primary" font-size="12" font-weight="650">图例</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="用户界面" data-legend-x="20" data-legend-baseline="580" data-legend-width="78">
+            <rect x="20" y="572" width="14" height="9" rx="2" class="c-frontend" stroke-width="1"/>
+            <text x="42" y="580" class="t-muted" font-size="7.5" font-weight="500">用户界面</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Agent 逻辑" data-legend-x="105" data-legend-baseline="580" data-legend-width="87">
+            <rect x="105" y="572" width="14" height="9" rx="2" class="c-backend" stroke-width="1"/>
+            <text x="127" y="580" class="t-muted" font-size="7.5" font-weight="500">Agent 逻辑</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="上下文 / 追踪" data-legend-x="199" data-legend-baseline="580" data-legend-width="100">
+            <rect x="199" y="572" width="14" height="9" rx="2" class="c-database" stroke-width="1"/>
+            <text x="221" y="580" class="t-muted" font-size="7.5" font-weight="500">上下文 / 追踪</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="云服务" data-legend-x="306" data-legend-baseline="580" data-legend-width="70">
+            <rect x="306" y="572" width="14" height="9" rx="2" class="c-cloud" stroke-width="1"/>
+            <text x="328" y="580" class="t-muted" font-size="7.5" font-weight="500">云服务</text>
+          </g>
+        </g>
+      </svg>
