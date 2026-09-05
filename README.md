@@ -17,25 +17,8 @@
 
 ## 工作流
 
-```mermaid
-flowchart LR
-    A{有现成简历?}
-    A -- 否 --> B[resume-generator]
-    A -- 是 --> C[resume-optimizer]
-    B --> D[候选简历]
-    C --> D
-    D --> E{需要终稿去 AI 化?}
-    E -- 是 --> F[resume-humanizer]
-    E -- 否 --> G[mock-interview]
-    F --> G
-    G --> H[累计 N 场面试记录]
-    H --> L[interview-answer-coach]
-    L --> I{至少 2 场?}
-    I -- 否 --> G
-    I -- 是 --> J[interview-summary]
-    J --> K[P0 / P1 / P2 补课计划]
-    K --> G
-```
+![运维 / SRE 求职训练闭环](docs/job-search-workflow.svg)
+
 
 六个 Skill 可以独立使用，也可以串成完整流程：
 
