@@ -13,6 +13,9 @@
 *.tmp
 *.bak
 
+# Skill 试跑产物（可重复生成）
+/skills/resume-project-questions-workspace/
+
 # 模拟面试记录（含卡壳原话等个人数据，不入库）
 interviews/*
 !interviews/SCHEMA.md

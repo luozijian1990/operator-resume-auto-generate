@@ -1,0 +1,175 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "运维 / SRE 求职训练闭环",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "legend": {
+      "mode": "hidden"
+    }
+  },
+  "lanes": [
+    {
+      "id": "resume_stage",
+      "label": "简历与项目准备"
+    },
+    {
+      "id": "interview_stage",
+      "label": "模拟面试与原始记录"
+    },
+    {
+      "id": "review_stage",
+      "label": "表达训练与能力补课"
+    },
+    {
+      "id": "repeat_stage",
+      "label": "再次面试验证"
+    }
+  ],
+  "mainPath": [
+    "resume_work",
+    "humanize_work",
+    "project_check",
+    "jd_mock",
+    "raw_records",
+    "cross_review",
+    "study_work",
+    "repeat_mock"
+  ],
+  "nodes": [
+    {
+      "id": "resume_work",
+      "lane": "resume_stage",
+      "col": 0,
+      "type": "backend",
+      "label": "简历生成 / 优化",
+      "sublabel": "整理真实经历与项目",
+      "width": 185
+    },
+    {
+      "id": "humanize_work",
+      "lane": "resume_stage",
+      "col": 1,
+      "type": "backend",
+      "label": "简历去模板化（可选）",
+      "sublabel": "保护事实与职责边界",
+      "width": 185
+    },
+    {
+      "id": "project_check",
+      "lane": "resume_stage",
+      "col": 2,
+      "type": "backend",
+      "label": "项目自查（可选，无 JD）",
+      "sublabel": "出题 → 填写 → 回答评估",
+      "width": 185
+    },
+    {
+      "id": "jd_mock",
+      "lane": "interview_stage",
+      "col": 2,
+      "type": "backend",
+      "label": "模拟面试",
+      "sublabel": "简历 + 完整 JD",
+      "width": 185
+    },
+    {
+      "id": "raw_records",
+      "lane": "interview_stage",
+      "col": 3,
+      "type": "database",
+      "label": "原始面试记录",
+      "sublabel": "interviews/",
+      "width": 185
+    },
+    {
+      "id": "single_coach",
+      "lane": "review_stage",
+      "col": 2,
+      "type": "backend",
+      "label": "单题回答辅导（可选）",
+      "sublabel": "展开思路与表达训练",
+      "width": 185
+    },
+    {
+      "id": "cross_review",
+      "lane": "review_stage",
+      "col": 3,
+      "type": "backend",
+      "label": "跨场聚合复盘",
+      "sublabel": "至少 2 场 · 聚合原始记录",
+      "width": 185
+    },
+    {
+      "id": "study_work",
+      "lane": "review_stage",
+      "col": 4,
+      "type": "frontend",
+      "label": "针对性补课",
+      "sublabel": "P0 / P1 / P2 优先级",
+      "width": 185
+    },
+    {
+      "id": "repeat_mock",
+      "lane": "repeat_stage",
+      "col": 4,
+      "type": "backend",
+      "label": "再次模拟面试",
+      "sublabel": "验证表达与能力改进",
+      "width": 185
+    }
+  ],
+  "edges": [
+    {
+      "from": "resume_work",
+      "to": "humanize_work"
+    },
+    {
+      "from": "humanize_work",
+      "to": "project_check"
+    },
+    {
+      "from": "project_check",
+      "to": "jd_mock",
+      "label": "自主选择进入"
+    },
+    {
+      "from": "jd_mock",
+      "to": "raw_records",
+      "label": "逐层记录"
+    },
+    {
+      "from": "raw_records",
+      "to": "cross_review",
+      "label": "多场原始证据"
+    },
+    {
+      "from": "raw_records",
+      "to": "single_coach",
+      "label": "单题原始回答",
+      "role": "branch"
+    },
+    {
+      "from": "cross_review",
+      "to": "study_work"
+    },
+    {
+      "from": "study_work",
+      "to": "repeat_mock"
+    },
+    {
+      "from": "single_coach",
+      "to": "repeat_mock",
+      "label": "练习后再验证",
+      "role": "branch"
+    },
+    {
+      "from": "repeat_mock",
+      "to": "raw_records",
+      "label": "积累新记录",
+      "variant": "dashed",
+      "role": "return"
+    }
+  ]
+}

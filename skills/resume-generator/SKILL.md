@@ -161,6 +161,7 @@ description: 基于运维技能等级白皮书，生成符合 STAR 法则的运�
 简历生成完成后，可继续使用：
 
 - `resume-humanizer` skill（可选）：检查模板化表达、事实支撑和面试承接风险，确认后生成不覆盖原件的去 AI 版
+- `resume-project-questions` skill（可选）：只依据项目明细生成业务、技术双视角自查题；填写回答后评估项目准备度，不引入 JD，也不作为模拟面试的强制前置
 - `mock-interview` skill：基于本简历和目标 JD 进行实时模拟面试，过程会落盘到 `interviews/{date}-{jd-slug}.md`
 - `interview-summary` skill：在面试结束后或事后离线，针对 `interviews/*.md` 生成多维度评分与补课计划
 

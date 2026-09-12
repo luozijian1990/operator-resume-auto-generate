@@ -158,7 +158,7 @@ humanizer_unresolved_risks: 0
 - 已保护的 JD/ATS 关键词（如有）；
 - 已降级或删除的高风险表述；
 - 仍未解决的事实风险；
-- 建议下一步运行 `mock-interview`。
+- 下一步可运行 `resume-project-questions`，不结合 JD 自查项目并评估填写的回答；也可直接运行 `mock-interview`，自查不是强制前置。
 
 不要在对话中铺开整份逐句对照。完整变化由用户查看源文件与新文件的 diff。
 

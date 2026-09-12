@@ -1,0 +1,40 @@
+{
+  "skill_name": "resume-project-questions",
+  "evals": [
+    {
+      "id": 1,
+      "name": "grounded-question-generation",
+      "prompt": "请根据 fixtures/resume.md 生成不结合 JD 的项目面试自查题，业务和技术各 15 题，四级 Markdown，方便导入 XMind，每题留回答位置。只能根据项目明细出题，不要单凭技术栈列表。简略的项目可以少出题，但请说明。直接保存，不用确认。",
+      "expected_output": "四级 Markdown，完整项目每视角 15 题，短项目按证据缩减；不考 Redis、Kafka、Trivy、Kubernetes、Prometheus、Grafana；无参考答案，不改写简历。",
+      "files": [
+        "evals/fixtures/resume.md"
+      ],
+      "assertions": [
+        "题单恰有一个根标题，项目为二级、业务先于技术为三级、问题为四级；无额外说明节点",
+        "门店报表项目每视角 15 题，巡检项目缩减且说明明细不足",
+        "所有问题均有该项目明细依据，无列表独有组件或虚构个人职责及成果",
+        "每题有空白回答位置，无代填答案",
+        "输入简历不变，不索要 JD，不启动模拟面试"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "partial-answer-assessment",
+      "prompt": "fixtures/answers.md 是我填了一部分的项目自查回答，原简历是 fixtures/resume.md。请评估题单中的这个项目，逐题评分并保存独立 Markdown 报告，告诉我能否进入后续 JD 模拟面试。我还没有 JD，不要开始模拟面试，不要改原回答。",
+      "expected_output": "全部 8 题有状态，空白不计分，明确不会为 1 分，职责冲突待澄清，列表独有 Redis 题不适用；覆盖率与均分可核对，仅给阶段性结论，不强索 JD，不编造答案。",
+      "files": [
+        "evals/fixtures/resume.md",
+        "evals/fixtures/answers.md"
+      ],
+      "assertions": [
+        "全部 8 题均有逐题结论，空白和待补充不计分，明确不会评 1 分",
+        "职责冲突引用简历和回答并待澄清，不认定造假",
+        "Redis 题判不适用并不计分，不因技术栈列表进行考核",
+        "未统计收益的回答不被迫编造数字，正确短答不因篇幅而扣分",
+        "分组状态计数、两种覆盖率及已评分均分正确，排除未回答和不适用项",
+        "给阶段性准备度及具体补充项，不以少量已答题通过整体自查，也不强制拦截模拟面试",
+        "输入不变，报告独立，不要求 JD 或启动模拟面试，不生成虚构参考答案"
+      ]
+    }
+  ]
+}

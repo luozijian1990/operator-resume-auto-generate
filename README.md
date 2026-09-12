@@ -1,14 +1,15 @@
 # 运维 / SRE 求职工作流
 
-> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历生成与优化，到模拟面试，再到单题表达训练、跨场复盘和补课计划。
+> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历生成与优化、项目自查，到 JD 模拟面试，再到单题表达训练、跨场复盘和补课计划。
 
-它不只是生成一份简历，而是把求职准备变成一条可以重复运行的闭环：用真实经历写简历，用目标 JD 检验匹配度，用结构化面试记录发现稳定短板，再回到下一轮训练。
+用真实经历写简历，通过项目自查梳理自己的业务理解和技术实践，再用目标 JD 检验匹配度、用结构化面试记录发现反复出现的短板，形成可以重复运行的训练流程。
 
 ## 你可以用它做什么
 
 - 没有现成简历：从真实经历中整理出可用于求职的项目描述
 - 已有简历：诊断 STAR、技术深度、量化结果及目标 JD 匹配度
 - 简历模板感太强：降低 AI 腔，同时保护事实、职责边界和 ATS 关键词
+- 简历已完成：不结合 JD，生成项目自查题，填写回答后评估项目熟悉程度
 - 准备面试：针对简历和目标 JD 进行递进式模拟面试
 - 面试过几轮：聚合多场表现，识别反复出现的短板并生成补课优先级
 
@@ -23,21 +24,25 @@
   <img alt="运维 / SRE 求职训练闭环" src="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-light.svg">
 </picture>
 
+图中的项目自查和单题辅导均为可选环节。单题辅导与跨场复盘分别读取原始面试记录，辅导报告不作为跨场聚合的输入。
 
-六个 Skill 可以独立使用，也可以串成完整流程：
+流程图维护：[Archify 源文件](docs/job-search-workflow.workflow.json) · [自适应主题 SVG](docs/job-search-workflow.svg) · [更新说明](docs/workflow-diagram.md)。README 使用浅色、深色两份 SVG，更新时需一起导出。
+
+七个 Skill 可以独立使用，也可以串成完整流程：
 
 | Skill | 什么时候用 | 主要产出 |
 | --- | --- | --- |
 | `resume-generator` | 没有简历，需要从经历开始整理 | 技术演进、业务痛点两种视角的项目描述 |
 | `resume-optimizer` | 已有简历，需要通用诊断或 JD 对齐 | 诊断报告、用户确认后的优化版简历 |
 | `resume-humanizer` | 简历太模板化、太像 AI | 风险诊断、用户确认后的去 AI 版简历 |
+| `resume-project-questions` | 简历完成后自查项目，或已填好自查回答 | 四级 Markdown 双视角题单、逐题评分与准备度建议；不涉及 JD |
 | `mock-interview` | 准备某个具体岗位的面试 | 匹配度评分、逐题追问和单场面试记录 |
 | `interview-answer-coach` | 某道回答讲不清或复盘已有面试题 | 已覆盖/合理展开/真正缺失、30/90 秒表达版本 |
 | `interview-summary` | 已积累至少 2 场面试记录 | 跨场能力画像、Top Gaps、补课优先级 |
 
 ## 快速开始
 
-本项目由 Markdown Skill 和参考资料组成，无需构建或安装运行时依赖。使用支持 Skill 的 AI 编程助手打开仓库，然后直接描述你的任务。
+本项目以 Markdown Skill 和参考资料为主，无需启动应用服务。使用支持 Skill 的 AI 编程助手打开仓库，然后直接描述你的任务。PDF 输入需要可用的文本提取或 OCR 工具；题单结构校验脚本使用 Python 3。
 
 ### 1. 选择起点
 
@@ -53,6 +58,20 @@
 ```text
 请使用 resumes/my-resume.md 和下面这份 JD 做匹配度诊断。
 先告诉我问题和建议改动范围，不要直接修改文件。
+```
+
+想先检查自己能否讲清简历项目时：
+
+```text
+使用 resume-project-questions，基于 resumes/my-resume.md 的项目明细出题，不结合 JD。
+每个项目业务、技术视角各 15 题，输出四级 Markdown，留出回答位置。
+```
+
+填写后继续：
+
+```text
+使用 resume-project-questions，评估我填写的 resumes/project-prep/项目问题.md。
+原简历是 resumes/my-resume.md。请逐题评分，生成独立报告，建议我是否可以进入 JD 模拟面试。
 ```
 
 想直接练面试时：
@@ -80,6 +99,9 @@ resume-generator / resume-optimizer
                  ↓
        [resume-humanizer]
                  ↓
+   [resume-project-questions]
+      出题 → 填写 → 回答评估
+                 ↓
           mock-interview × N
                  ↓
        ┌─────────┴─────────┐
@@ -91,6 +113,8 @@ resume-generator / resume-optimizer
                  ↓
         补课后再次模拟面试
 ```
+
+`resume-project-questions` 是可选的项目自查环节，不要求 JD；准备度建议不构成模拟面试的强制门槛，也不替代 JD 匹配度评分。题单、用户回答及独立评估报告保存在 `resumes/project-prep/`，不会写入模拟面试记录。
 
 `interview-answer-coach` 是可选的单题纵向复盘，不是 `interview-summary` 的前置条件；两者都直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
 
@@ -123,6 +147,12 @@ resume-generator / resume-optimizer
 
 ## 核心设计
 
+### 先检查能否讲清自己的项目
+
+`resume-project-questions` 不引入 JD，依据项目背景、职责、实施和成果生成业务、技术双视角问题。仅列在技术栈中、项目明细没有展开的工具不单独出题；默认每视角 15 题，材料不足时补充信息或减少题数。
+
+题单使用“清单 → 项目 → 视角 → 问题”四级 Markdown，每题下方留出回答位置。填写后生成独立评估报告，区分已评分、未回答、待澄清和题目不适用，并结合核心问题给出准备度建议。该建议不等于 JD 匹配度，也不会自动启动或阻止模拟面试。
+
 ### 用多场数据识别真正的短板
 
 每场模拟面试都会形成一份结构化记录。只有某个卡壳点在不同面试中反复出现，它才更可能是稳定问题，而不是一次状态波动。因此，单场记录负责保存事实，跨场总结负责形成结论。
@@ -154,8 +184,8 @@ resume-generator / resume-optimizer
 - 没有量化数据时先追问统计口径，不使用模板里的示例数字
 - 去 AI 化的目标是恢复自然、可信、可追问的表达，不是规避检测
 - 已命中且有事实支撑的 JD / ATS 关键词会受到保护
-- 真实简历默认写入 `resumes/`，面试记录默认写入 `interviews/`，真实 coaching 结果默认写入 `coaching/` 并默认被 gitignored
-- 上述两个目录均已加入 `.gitignore`，默认不会提交到仓库
+- 真实简历默认写入 `resumes/`，项目自查题单、回答及评估报告写入 `resumes/project-prep/`；面试记录写入 `interviews/`，单题辅导结果写入 `coaching/`
+- 上述三个数据目录中的个人产出已通过 `.gitignore` 排除，默认不入库；`interviews/SCHEMA.md` 和 `coaching/SCHEMA.md` 等公共契约仍纳入版本管理
 
 > [!WARNING]
 > 简历和面试记录可能包含姓名、公司经历、联系方式及卡壳原话。分享文件或修改 `.gitignore` 前，请先检查并脱敏。
@@ -164,10 +194,11 @@ resume-generator / resume-optimizer
 
 ```text
 operation-resume-auto-generate/
-├── skills/                    # 六个 Skill 的唯一维护目录
+├── skills/                    # 七个 Skill 的唯一维护目录
 │   ├── resume-generator/
 │   ├── resume-optimizer/
 │   ├── resume-humanizer/
+│   ├── resume-project-questions/
 │   ├── mock-interview/
 │   ├── interview-answer-coach/
 │   └── interview-summary/
@@ -180,6 +211,8 @@ operation-resume-auto-generate/
 ├── interviews/
 │   └── SCHEMA.md              # 面试记录与聚合总结的数据契约
 ├── resumes/                   # 真实简历与改写产出，默认不入库
+│   └── project-prep/          # 项目题单、用户回答与独立评估报告
+├── docs/                     # 流程图 Archify 源文件、SVG 与更新说明
 ├── .agents/skills/            # Cursor / Codex 入口
 ├── .agent/skills/             # Gemini / Antigravity 入口
 └── .claude/skills/            # Claude 入口
