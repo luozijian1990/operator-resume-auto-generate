@@ -474,6 +474,12 @@ rect.c-bg-rect { fill: var(--bg); }
         </g>
 
 
+        <path data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="按评分选择题目" data-edge-key="10" d="M 566.5 150 L 566.5 341" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead)" stroke-dasharray="5 4"/>
+        <g data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="按评分选择题目" data-edge-key="10">
+          <rect x="574" y="232" width="76" height="14" rx="3" class="c-mask"/>
+          <text x="612" y="242" class="t-muted" font-size="8" text-anchor="middle">按评分选择题目</text>
+        </g>
+
         <!-- Legend -->
 
       </svg>

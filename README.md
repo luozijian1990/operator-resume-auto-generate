@@ -37,7 +37,7 @@
 | `resume-humanizer` | 简历太模板化、太像 AI | 风险诊断、用户确认后的去 AI 版简历 |
 | `resume-project-questions` | 简历完成后自查项目，或已填好自查回答 | 四级 Markdown 双视角题单、逐题评分与准备度建议；不涉及 JD |
 | `mock-interview` | 准备某个具体岗位的面试 | 匹配度评分、逐题追问和单场面试记录 |
-| `interview-answer-coach` | 某道回答讲不清或复盘已有面试题 | 已覆盖/合理展开/真正缺失、30/90 秒表达版本 |
+| `interview-answer-coach` | 某道回答讲不清、项目自查后需要训练，或复盘已有面试题 | 已覆盖/合理展开/真正缺失、30/90 秒表达版本、面试口语去模板化 |
 | `interview-summary` | 已积累至少 2 场面试记录 | 跨场能力画像、Top Gaps、补课优先级 |
 
 ## 快速开始
@@ -116,7 +116,7 @@ resume-generator / resume-optimizer
 
 `resume-project-questions` 是可选的项目自查环节，不要求 JD；准备度建议不构成模拟面试的强制门槛，也不替代 JD 匹配度评分。题单、用户回答及独立评估报告保存在 `resumes/project-prep/`，不会写入模拟面试记录。
 
-`interview-answer-coach` 是可选的单题纵向复盘，不是 `interview-summary` 的前置条件；两者都直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
+`interview-answer-coach` 是可选的单题纵向复盘，也可以接在项目自查评估之后，按评分选择题目进行回答训练。它会吸收面试口语去模板化规则，减少客套开场、空泛总结和机械三段式，同时保留技术细节、职责边界和事实证据。它不是 `interview-summary` 的前置条件；两者都可以直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
 
 ## 产出示例
 
@@ -152,6 +152,7 @@ resume-generator / resume-optimizer
 `resume-project-questions` 不引入 JD，依据项目背景、职责、实施和成果生成业务、技术双视角问题。仅列在技术栈中、项目明细没有展开的工具不单独出题；默认每视角 15 题，材料不足时补充信息或减少题数。
 
 题单使用“清单 → 项目 → 视角 → 问题”四级 Markdown，每题下方留出回答位置。填写后生成独立评估报告，区分已评分、未回答、待澄清和题目不适用，并结合核心问题给出准备度建议。该建议不等于 JD 匹配度，也不会自动启动或阻止模拟面试。
+如果回答主要是表达压缩或模板化，可以把指定题目交给 `interview-answer-coach`；它只重排和展开已有内容，不补造经历。
 
 ### 用多场数据识别真正的短板
 

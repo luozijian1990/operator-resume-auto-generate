@@ -140,6 +140,13 @@
       "label": "逐层记录"
     },
     {
+      "from": "project_check",
+      "to": "single_coach",
+      "label": "按评分选择题目",
+      "role": "branch",
+      "variant": "dashed"
+    },
+    {
       "from": "raw_records",
       "to": "cross_review",
       "label": "多场原始证据"
