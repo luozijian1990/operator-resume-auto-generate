@@ -333,12 +333,14 @@ rect.c-bg-rect { fill: var(--bg); }
         <path data-edge-from="humanize_work" data-edge-to="project_check" data-edge-key="1" data-composition-points="446,119;474,119" d="M 446 119 L 474 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="jd_mock" data-edge-to="raw_records" data-edge-label="逐层记录" data-edge-key="2" data-composition-points="566.5,269;566.5,285;807.9,285;807.9,269" d="M 566.5 269 L 566.5 285 L 807.9 285 L 807.9 269" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
         <path data-edge-from="project_check" data-edge-to="jd_mock" data-edge-label="自主选择进入" data-edge-key="3" data-composition-points="659,119;675,119;675,166;566.5,166;566.5,217" d="M 659 119 L 675 119 L 675 166 L 566.5 166 L 566.5 217" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="4" data-composition-points="900.4,243;916.4,243;916.4,290;807.9,290;807.9,341" d="M 900.4 243 L 916.4 243 L 916.4 290 L 807.9 290 L 807.9 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="5" data-composition-points="900.4,243;1211,243;1211,325;566.5,325;566.5,341" d="M 900.4 243 L 1211 243 L 1211 325 L 566.5 325 L 566.5 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="6" data-composition-points="1113.4,491;1129.4,491;1129.4,160;807.9,160;807.9,217" d="M 1113.4 491 L 1129.4 491 L 1129.4 160 L 807.9 160 L 807.9 217" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="resume_work" data-edge-to="humanize_work" data-edge-key="7" data-composition-points="233,119;261,119" d="M 233 119 L 261 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="8" data-composition-points="566.5,393;566.5,491;928.4,491" d="M 566.5 393 L 566.5 491 L 928.4 491" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="study_work" data-edge-to="repeat_mock" data-edge-key="9" data-composition-points="1020.9,393;1020.9,465" d="M 1020.9 393 L 1020.9 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="4" data-composition-points="474,119;458,119;458,420;566.5,420;566.5,393" d="M 474 119 L 458 119 L 458 420 L 566.5 420 L 566.5 393" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="5" data-composition-points="900.4,243;916.4,243;916.4,290;807.9,290;807.9,341" d="M 900.4 243 L 916.4 243 L 916.4 290 L 807.9 290 L 807.9 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="6" data-composition-points="900.4,243;1211,243;1211,325;566.5,325;566.5,341" d="M 900.4 243 L 1211 243 L 1211 325 L 566.5 325 L 566.5 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="7" data-composition-points="1113.4,491;1129.4,491;1129.4,160;807.9,160;807.9,217" d="M 1113.4 491 L 1129.4 491 L 1129.4 160 L 807.9 160 L 807.9 217" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="resume_work" data-edge-to="humanize_work" data-edge-key="8" data-composition-points="233,119;261,119" d="M 233 119 L 261 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="9" data-composition-points="474,367;458,367;458,36;566.5,36;566.5,93" d="M 474 367 L 458 367 L 458 36 L 566.5 36 L 566.5 93" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="10" data-composition-points="566.5,393;566.5,491;928.4,491" d="M 566.5 393 L 566.5 491 L 928.4 491" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="study_work" data-edge-to="repeat_mock" data-edge-key="11" data-composition-points="1020.9,393;1020.9,465" d="M 1020.9 393 L 1020.9 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
 
         <!-- Nodes -->
         <g id="node-resume_work" data-node-id="resume_work" data-node-label="简历生成 / 优化" tabindex="0" role="button" aria-label="聚焦简历生成 / 优化，整理真实经历与项目, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="整理真实经历与项目" data-node-context="简历与项目准备">
@@ -455,30 +457,32 @@ rect.c-bg-rect { fill: var(--bg); }
           <rect x="586.95" y="146" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="620.75" y="156" class="t-muted" font-size="8" text-anchor="middle">自主选择进入</text>
         </g>
-        <g data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="4">
+        <g data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="4">
+          <rect x="473.65" y="400" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="512.25" y="410" class="t-database" font-size="8" text-anchor="middle">选题诊断与训练</text>
+        </g>
+        <g data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="5">
           <rect x="828.35" y="270" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="862.15" y="280" class="t-muted" font-size="8" text-anchor="middle">多场原始证据</text>
         </g>
-        <g data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="5">
+        <g data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="6">
           <rect x="854.95" y="305" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="888.75" y="315" class="t-muted" font-size="8" text-anchor="middle">单题原始回答</text>
         </g>
-        <g data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="6">
+        <g data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="7">
           <rect x="939.6500000000001" y="140" width="58" height="14" rx="3" class="c-mask"/>
           <text x="968.6500000000001" y="150" class="t-database" font-size="8" text-anchor="middle">积累新记录</text>
         </g>
 
-        <g data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="8">
+        <g data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="9">
+          <rect x="473.65" y="16" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="512.25" y="26" class="t-database" font-size="8" text-anchor="middle">用户重答后复评</text>
+        </g>
+        <g data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="10">
           <rect x="713.6500000000001" y="471" width="67.6" height="14" rx="3" class="c-mask"/>
           <text x="747.45" y="481" class="t-muted" font-size="8" text-anchor="middle">练习后再验证</text>
         </g>
 
-
-        <path data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="按评分选择题目" data-edge-key="10" d="M 566.5 150 L 566.5 341" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead)" stroke-dasharray="5 4"/>
-        <g data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="按评分选择题目" data-edge-key="10">
-          <rect x="574" y="232" width="76" height="14" rx="3" class="c-mask"/>
-          <text x="612" y="242" class="t-muted" font-size="8" text-anchor="middle">按评分选择题目</text>
-        </g>
 
         <!-- Legend -->
 

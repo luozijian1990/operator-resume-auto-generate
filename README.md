@@ -24,7 +24,7 @@
   <img alt="运维 / SRE 求职训练闭环" src="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-light.svg">
 </picture>
 
-图中的项目自查和单题辅导均为可选环节。单题辅导与跨场复盘分别读取原始面试记录，辅导报告不作为跨场聚合的输入。
+图中的项目自查和单题辅导均为可选环节。单题辅导可读取自查题单中的原回答，也可读取原始面试记录；跨场复盘只聚合原始面试记录，辅导报告不作为其输入。自查辅导后由用户重新作答，再生成新版评估。
 
 流程图维护：[Archify 源文件](docs/job-search-workflow.workflow.json) · [自适应主题 SVG](docs/job-search-workflow.svg) · [更新说明](docs/workflow-diagram.md)。README 使用浅色、深色两份 SVG，更新时需一起导出。
 
@@ -74,6 +74,16 @@
 原简历是 resumes/my-resume.md。请逐题评分，生成独立报告，建议我是否可以进入 JD 模拟面试。
 ```
 
+某题需要帮助时：
+
+```text
+使用 interview-answer-coach，辅导 resumes/project-prep/项目问题.md 中
+“项目原名 / 技术视角 / 第 3 题”，原简历是 resumes/my-resume.md。
+读取题目和我的完整回答，判断是没讲清、需要补课还是事实待澄清，再给训练建议。
+```
+
+训练后用自己的话重新回答，保留旧回答，并将新版题单交给 `resume-project-questions` 重新评估。coach 的推荐版本不会直接计入评分。
+
 想直接练面试时：
 
 ```text
@@ -101,6 +111,8 @@ resume-generator / resume-optimizer
                  ↓
    [resume-project-questions]
       出题 → 填写 → 回答评估
+                 ↔ [interview-answer-coach]
+                    选题诊断与训练；用户重答后回到自查评估
                  ↓
           mock-interview × N
                  ↓
@@ -116,7 +128,7 @@ resume-generator / resume-optimizer
 
 `resume-project-questions` 是可选的项目自查环节，不要求 JD；准备度建议不构成模拟面试的强制门槛，也不替代 JD 匹配度评分。题单、用户回答及独立评估报告保存在 `resumes/project-prep/`，不会写入模拟面试记录。
 
-`interview-answer-coach` 是可选的单题纵向复盘，也可以接在项目自查评估之后，按评分选择题目进行回答训练。它会吸收面试口语去模板化规则，减少客套开场、空泛总结和机械三段式，同时保留技术细节、职责边界和事实证据。它不是 `interview-summary` 的前置条件；两者都可以直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
+`interview-answer-coach` 是可选的单题纵向复盘，也可以接在项目自查评估之后，按核心问题和具体缺口选题。它从原题单读取完整回答，评估报告只辅助定位；表达压缩可展开，知识或实操缺口需补课练习，事实矛盾先核实。内置的面试口语检查减少客套开场、空泛总结和机械三段式，保留技术细节、职责边界和事实证据。它不是 `interview-summary` 的前置条件；两者都可以直接读取 `interviews/`。`interview-summary` 至少需要两场已完成的面试记录。
 
 ## 产出示例
 

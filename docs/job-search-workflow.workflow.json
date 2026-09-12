@@ -142,7 +142,7 @@
     {
       "from": "project_check",
       "to": "single_coach",
-      "label": "按评分选择题目",
+      "label": "选题诊断与训练",
       "role": "branch",
       "variant": "dashed"
     },
@@ -177,6 +177,13 @@
       "label": "积累新记录",
       "variant": "dashed",
       "role": "return"
+    },
+    {
+      "from": "single_coach",
+      "to": "project_check",
+      "label": "用户重答后复评",
+      "role": "return",
+      "variant": "dashed"
     }
   ]
 }
