@@ -1,0 +1,9 @@
+{
+  "name": "operation-resume-auto-generate",
+  "displayName": "运维 / SRE 求职工作流",
+  "description": "面向运维、DevOps、SRE 和平台工程岗位的简历、项目自查与模拟面试 Skills 工作流。",
+  "version": "1.0.0",
+  "author": { "name": "luozijian1990" },
+  "license": "MIT",
+  "skills": "./skills/"
+}

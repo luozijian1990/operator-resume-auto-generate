@@ -252,3 +252,19 @@ operation-resume-auto-generate/
 - [匹配度评分契约](shared/match-scoring.md)：简历与 JD 的 6 维评分规则
 - [面试数据契约](interviews/SCHEMA.md)：记录文件、聚合文件及写入约束
 - [Skill 源码](skills/)：各流程的完整触发条件、检查点和输出规范
+
+## 作为 Codex / Claude 插件安装
+
+本仓库现在以标准插件形式提供，不再需要 `.agents/skills` 符号链接。发布 npm 包后，可直接运行：
+
+```bash
+npx skills add luozijian1990/operator-resume-auto-generate
+```
+
+也可以从本地仓库安装：
+
+```bash
+npx skills add .
+```
+
+插件清单位于 `.codex-plugin/plugin.json`，其中包含全部七个 Skill；同一份 Skill 定义可供 Codex 与 Claude 使用。

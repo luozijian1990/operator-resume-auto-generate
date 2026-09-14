@@ -1,0 +1,7 @@
+{
+  "name": "operation-resume-auto-generate",
+  "description": "运维、DevOps、SRE 求职工作流：简历生成与优化、项目自查、模拟面试和跨场复盘。",
+  "version": "1.0.0",
+  "author": { "name": "luozijian1990" },
+  "license": "MIT"
+}
