@@ -1,0 +1,599 @@
+{
+  "version": "v1",
+  "schema": "skill-registry",
+  "level_order": [
+    "L0",
+    "L1",
+    "L2",
+    "L3",
+    "L4"
+  ],
+  "level_definitions": {
+    "L0": "未接触过",
+    "L1": "知道是什么，能解释用途和基本概念",
+    "L2": "能基础使用，能跟着文档或独立完成常见操作",
+    "L3": "能独立完成任务和基础排错，能真正用于项目或工作",
+    "L4": "能设计、优化和深入分析，理解内部机制并处理复杂问题"
+  },
+  "defaults": {
+    "entry_target": "L2",
+    "growth_target": "L2",
+    "baseline_candidate": false
+  },
+  "skills": [
+    {
+      "id": "linux",
+      "name": "Linux",
+      "aliases": [
+        "linux",
+        "unix",
+        "centos",
+        "ubuntu",
+        "redhat",
+        "rhel",
+        "debian",
+        "linux系统",
+        "linux运维",
+        "linux服务器",
+        "linux/unix",
+        "unix/linux"
+      ],
+      "category": "os",
+      "type": "platform",
+      "roadmap_ref": "linux",
+      "entry_target": "L3",
+      "growth_target": "L3",
+      "baseline_candidate": true,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "shell-bash",
+      "name": "Shell / Bash",
+      "aliases": [
+        "shell",
+        "bash",
+        "sh",
+        "shell脚本",
+        "shell编程",
+        "shell scripting",
+        "bash脚本",
+        "linux脚本",
+        "shell/bash"
+      ],
+      "category": "shell",
+      "type": "language",
+      "roadmap_ref": "shell-bash",
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": true,
+      "entity_kind": "language"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "aliases": [
+        "docker",
+        "docker容器",
+        "容器化",
+        "container",
+        "docker/container"
+      ],
+      "category": "container",
+      "type": "platform",
+      "roadmap_ref": "docker",
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": true,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "aliases": [
+        "kubernetes",
+        "k8s",
+        "k3s",
+        "k8s集群",
+        "kubernetes集群",
+        "容器编排",
+        "容器调度"
+      ],
+      "category": "container-orchestration",
+      "type": "platform",
+      "roadmap_ref": "kubernetes",
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "git-github",
+      "name": "Git / GitHub",
+      "aliases": [
+        "git",
+        "github",
+        "gitlab",
+        "版本控制",
+        "git版本管理"
+      ],
+      "category": "vcs",
+      "type": "tool",
+      "roadmap_ref": "git-github",
+      "entry_target": "L2",
+      "growth_target": "L2",
+      "baseline_candidate": true,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "aliases": [
+        "python",
+        "py",
+        "python语言",
+        "python脚本"
+      ],
+      "category": "language",
+      "type": "language",
+      "roadmap_ref": "python",
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "language"
+    },
+    {
+      "id": "golang",
+      "name": "Go / Golang",
+      "aliases": [
+        "go",
+        "golang",
+        "go语言"
+      ],
+      "category": "language",
+      "type": "language",
+      "roadmap_ref": "golang",
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "language"
+    },
+    {
+      "id": "sql",
+      "name": "SQL",
+      "aliases": [
+        "sql",
+        "sql语言",
+        "sql查询"
+      ],
+      "category": "database",
+      "type": "language",
+      "roadmap_ref": "sql",
+      "entry_target": "L2",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "language"
+    },
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "aliases": [
+        "mysql",
+        "mariadb",
+        "mysql数据库"
+      ],
+      "category": "database",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": true,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "elasticsearch",
+      "name": "Elasticsearch",
+      "aliases": [
+        "elasticsearch",
+        "es",
+        "elasticsearch集群"
+      ],
+      "category": "database",
+      "type": "tool",
+      "roadmap_ref": "elasticsearch",
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "aliases": [
+        "redis",
+        "redis缓存"
+      ],
+      "category": "database",
+      "type": "tool",
+      "roadmap_ref": "redis",
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "aliases": [
+        "postgresql",
+        "postgres",
+        "pgsql"
+      ],
+      "category": "database",
+      "type": "tool",
+      "roadmap_ref": "postgresql-dba",
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "aliases": [
+        "terraform",
+        "iac",
+        "terraform/iac",
+        "terraform基础"
+      ],
+      "category": "iac",
+      "type": "tool",
+      "roadmap_ref": "terraform",
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "network-engineer",
+      "name": "Network Engineer",
+      "aliases": [
+        "网络工程师",
+        "network engineer",
+        "routing & switching",
+        "routing and switching",
+        "bgp",
+        "ospf",
+        "交换机",
+        "路由器",
+        "交换路由"
+      ],
+      "category": "networking",
+      "type": "role",
+      "roadmap_ref": "network-engineer",
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "role"
+    },
+    {
+      "id": "networking-basics",
+      "name": "Networking Basics",
+      "aliases": [
+        "tcp/ip",
+        "tcpip",
+        "tcp/udp",
+        "tcp udp",
+        "计算机网络",
+        "网络基础",
+        "基础网络",
+        "网络协议",
+        "osi",
+        "osi模型",
+        "http/dns",
+        "dns",
+        "tcp/ip协议"
+      ],
+      "category": "networking",
+      "type": "concept",
+      "roadmap_ref": null,
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": true,
+      "entity_kind": "concept"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "aliases": [
+        "devops",
+        "运维开发",
+        "devops工程师",
+        "运维开发/devops"
+      ],
+      "category": "role",
+      "type": "role",
+      "roadmap_ref": "devops",
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "domain"
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "aliases": [
+        "prometheus",
+        "prom",
+        "prometheus监控"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "aliases": [
+        "grafana",
+        "grafana监控"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "zabbix",
+      "name": "Zabbix",
+      "aliases": [
+        "zabbix",
+        "zabbix监控"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "elk",
+      "name": "ELK Stack",
+      "aliases": [
+        "elk",
+        "logstash",
+        "kibana",
+        "elk日志",
+        "elastic stack"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "jenkins",
+      "name": "Jenkins",
+      "aliases": [
+        "jenkins",
+        "jenkins流水线"
+      ],
+      "category": "ci-cd",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "gitlab-ci",
+      "name": "GitLab CI",
+      "aliases": [
+        "gitlab ci",
+        "gitlab-ci",
+        "gitlabci"
+      ],
+      "category": "ci-cd",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "ansible",
+      "name": "Ansible",
+      "aliases": [
+        "ansible",
+        "ansible自动化"
+      ],
+      "category": "automation",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "nginx",
+      "name": "Nginx",
+      "aliases": [
+        "nginx",
+        "nginx服务器",
+        "nginx反向代理",
+        "nginx部署"
+      ],
+      "category": "web-proxy",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L2",
+      "growth_target": "L3",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "kafka",
+      "name": "Kafka",
+      "aliases": [
+        "kafka",
+        "kafka消息"
+      ],
+      "category": "middleware",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "rabbitmq",
+      "name": "RabbitMQ",
+      "aliases": [
+        "rabbitmq",
+        "rabbit mq"
+      ],
+      "category": "middleware",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "vmware",
+      "name": "VMware",
+      "aliases": [
+        "vmware",
+        "esxi",
+        "vsphere",
+        "vmware虚拟化"
+      ],
+      "category": "virtualization",
+      "type": "platform",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "openstack",
+      "name": "OpenStack",
+      "aliases": [
+        "openstack",
+        "openstack云"
+      ],
+      "category": "virtualization",
+      "type": "platform",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "aliases": [
+        "aws",
+        "amazon web services"
+      ],
+      "category": "cloud",
+      "type": "platform",
+      "roadmap_ref": "aws",
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "etcd",
+      "name": "etcd",
+      "aliases": [
+        "etcd"
+      ],
+      "category": "infrastructure",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "consul",
+      "name": "Consul",
+      "aliases": [
+        "consul"
+      ],
+      "category": "infrastructure",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "platform"
+    },
+    {
+      "id": "argo-cd",
+      "name": "Argo CD",
+      "aliases": [
+        "argo cd",
+        "argocd"
+      ],
+      "category": "ci-cd",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "loki",
+      "name": "Loki",
+      "aliases": [
+        "loki"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    },
+    {
+      "id": "open-telemetry",
+      "name": "OpenTelemetry",
+      "aliases": [
+        "opentelemetry",
+        "otel",
+        "open telemetry"
+      ],
+      "category": "observability",
+      "type": "tool",
+      "roadmap_ref": null,
+      "entry_target": "L1",
+      "growth_target": "L2",
+      "baseline_candidate": false,
+      "entity_kind": "tool"
+    }
+  ]
+}

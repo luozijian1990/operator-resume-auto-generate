@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title"><img src="icons/icon-32.png" alt="">Boss 岗位助手</div>
+    <div class="topbar-actions">
+      <span id="recLabel" class="rec-label">已停止</span>
+      <label class="switch">
+        <input type="checkbox" id="recToggle">
+        <span class="slider"></span>
+      </label>
+      <button id="settingsToggle" class="icon-btn" title="设置">⚙</button>
+    </div>
+  </header>
+
+  <div id="hint" class="hint hidden"></div>
+
+  <section class="settings-panel hidden" id="settingsPanel">
+    <div class="settings-tabs">
+      <button id="tabAi" class="tab active">AI 设置</button>
+      <button id="tabProfile" class="tab">求职画像</button>
+    </div>
+
+    <div id="aiSection">
+      <div class="settings-row provider-row">
+        <label class="provider-card"><input type="radio" name="provider" value="openai"> OpenAI</label>
+        <label class="provider-card"><input type="radio" name="provider" value="anthropic"> Anthropic</label>
+      </div>
+      <div class="settings-field">
+        <label for="baseUrl">Base URL</label>
+        <input type="text" id="baseUrl" placeholder="https://api.openai.com" autocomplete="off">
+      </div>
+      <div class="settings-field">
+        <label for="model">Model</label>
+        <input type="text" id="model" placeholder="gpt-4.1" autocomplete="off">
+      </div>
+      <div class="settings-field">
+        <label for="apiKey">API Key</label>
+        <input type="password" id="apiKey" placeholder="sk-..." autocomplete="off">
+      </div>
+      <div class="settings-actions">
+        <button id="saveApiKey" class="mini-btn">保存 Key</button>
+        <button id="clearApiKey" class="mini-btn danger">清除 Key</button>
+        <button id="saveSettings" class="mini-btn primary">保存配置</button>
+        <button id="testConnection" class="mini-btn">测试连接</button>
+      </div>
+      <div id="settingsStatus" class="settings-status"></div>
+    </div>
+
+    <div id="profileSection" class="hidden">
+      <p class="profile-note">求职画像会用于岗位匹配、投递决策和岗位深度分析，无需每次重复填写。本地评分前，请至少完善当前岗位、工作年限、工作经历、核心技能、期望方向中的 3 项。</p>
+      <div id="profileForm"></div>
+      <div class="settings-actions">
+        <button id="saveProfile" class="mini-btn primary">保存求职画像</button>
+        <button id="clearProfile" class="mini-btn danger">清空</button>
+      </div>
+      <div id="profileStatus" class="settings-status"></div>
+    </div>
+  </section>
+
+  <section class="jobs-section">
+    <div class="stats" id="stats">已记录 0 个岗位</div>
+    <div class="searchbar">
+      <input type="text" id="search" placeholder="搜索岗位 / 公司 / 城市">
+    </div>
+    <div class="toolbar">
+      <label class="select-all">
+        <input type="checkbox" id="selectAll"> 全选
+      </label>
+      <span id="selectedCount" class="selected-count">已选 0 个</span>
+      <button id="exportJobs" class="mini-btn" title="导出当前标签页全部已记录岗位，不受搜索和勾选影响" disabled>导出 JD JSON</button>
+      <button id="clearAll" class="link-btn">清空</button>
+    </div>
+    <ul id="jobList" class="job-list"></ul>
+  </section>
+
+  <section class="chat-section">
+    <div class="chat-toolbar">
+      <span>AI 对话</span>
+      <button id="exportChat" class="mini-btn" disabled>导出 Markdown</button>
+    </div>
+    <div id="chatMessages" class="chat-messages"></div>
+    <div class="skill-chip hidden" id="skillChip">
+      <span id="skillChipName"></span>
+      <button id="skillChipClear" title="取消 skill">×</button>
+    </div>
+    <div class="chat-input-wrap">
+      <div id="slashMenu" class="slash-menu"></div>
+      <div class="chat-input">
+        <textarea id="chatInput" placeholder="勾选岗位后输入问题，输入 / 使用技能"></textarea>
+        <button id="sendBtn">发送</button>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="exportDialog" class="export-dialog">
+    <div class="export-dialog-title">导出当前会话</div>
+    <label for="exportFilename">文件名</label>
+    <input type="text" id="exportFilename" autocomplete="off">
+    <p>将导出本次会话的全部有效问答和岗位摘要，不包含完整 JD、求职画像或模型思考内容。</p>
+    <div class="export-dialog-actions">
+      <button id="cancelExport" class="mini-btn" type="button">取消</button>
+      <button id="confirmExport" class="mini-btn primary" type="button">下载</button>
+    </div>
+  </dialog>
+
+  <script src="lib/marked.min.js"></script>
+  <script src="skills.js"></script>
+  <script src="skillRegistry.js"></script>
+  <script src="localMatcher.js"></script>
+  <script src="aiProvider.js"></script>
+  <script src="sidepanel.js"></script>
+</body>
+</html>
