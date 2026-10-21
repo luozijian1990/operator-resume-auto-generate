@@ -1,0 +1,4 @@
+interface:
+  display_name: "JD 项目组合推荐"
+  short_description: "结合目标 JD 从真实项目素材中推荐投递组合、顺序与表达重点"
+  default_prompt: "使用 $resume-project-selector，结合目标 JD 和我提供的项目素材，推荐简历应选哪些项目、排列顺序及表达重点。"

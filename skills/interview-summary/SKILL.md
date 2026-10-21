@@ -83,6 +83,7 @@ description: 跨场面试聚合复盘。读取用户选定的 N 个面试记录�
 - 校验 `schema_version: v1`，不匹配的文件标出并询问用户是否跳过该场（不要强行处理未知 schema）
 - 校验 `status` 在 `completed` / `aborted` 内
 - 收集每题数据：题号、维度、题目、回答要点、卡壳原话、追问、评分
+- `## 面试背景依据` 若存在，仅作出题来源参考，不计入问答、题数、评分或候选人能力证据；旧记录缺少该段不影响读取。
 
 `aborted` 的场也纳入聚合，但在 `tags` 加 `aborted-included` 标记，且整体评分计算时该场的 `question_count` 权重正常使用（短场天然权重小）。
 
@@ -164,6 +165,8 @@ overall_score = sum(每场所有题评分) / sum(所有场题数)
 | `reached` | 进入该层的题数（L1 = 所有题；L2 = 实际追问到 L2 的题数；L3 = 实际追问到 L3 的题数） |
 | `passed` | 该层被评估为 ≥ 3 分（含 L1 OK 但 L2 卡的也算"L1 passed"）的题数 |
 | `rate` | `passed / reached`，保留 1 位小数；reached=0 时写 `null` |
+
+未实际追问的层不进入 reached/passed，不因总分高或较早回答涉及更深内容而推定已进入该层，也不将“未考察”算作失败。
 
 **判定 "L{n} passed" 的规则**：题目的"本题评分"理由中说明"L{n} OK"或更高层才卡的，视为 L{n} 通过。如评分理由"L1 OK，L2 起卡，L3 直接断"→ L1 passed, L2 not passed, L3 reached but not passed。
 
