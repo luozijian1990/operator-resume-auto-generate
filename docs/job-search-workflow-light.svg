@@ -1,4 +1,4 @@
-<svg data-theme="light" viewBox="0 0 1227 652" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="1227" height="652" xmlns="http://www.w3.org/2000/svg"><style>@font-face { font-family: 'JetBrains Mono'; font-weight: 400; src: local('JetBrains Mono'), local('JetBrainsMono-Regular'); }
+<svg data-theme="light" viewBox="0 0 1227 776" role="img" lang="zh-CN" aria-labelledby="archify-diagram-title archify-diagram-description" data-preset="classic" data-quality-profile="showcase" style="" width="1227" height="776" xmlns="http://www.w3.org/2000/svg"><style>@font-face { font-family: 'JetBrains Mono'; font-weight: 400; src: local('JetBrains Mono'), local('JetBrainsMono-Regular'); }
 @font-face { font-family: 'JetBrains Mono'; font-weight: 500; src: local('JetBrains Mono'), local('JetBrainsMono-Regular'); }
 @font-face { font-family: 'JetBrains Mono'; font-weight: 600; src: local('JetBrains Mono'), local('JetBrainsMono-Regular'); }
 @font-face { font-family: 'JetBrains Mono'; font-weight: 700; src: local('JetBrains Mono'), local('JetBrainsMono-Regular'); }
@@ -311,16 +311,19 @@ rect.c-bg-rect { fill: var(--bg); }
 
         <!-- Swimlanes -->
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-0" x="40" y="52" width="1159" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / 简历与项目准备</text>
+        <text x="54" y="74" class="t-dim" font-size="10" font-weight="600">01 / 已有简历 · 独立分析（无 JD）</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-1" x="40" y="176" width="1159" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / 模拟面试与原始记录</text>
+        <text x="54" y="198" class="t-dim" font-size="10" font-weight="600">02 / 简历与项目准备</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-2" x="40" y="300" width="1159" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / 表达训练与能力补课</text>
+        <text x="54" y="322" class="t-dim" font-size="10" font-weight="600">03 / 模拟面试与原始记录</text>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-3" x="40" y="424" width="1159" height="104" rx="10" class="c-lane" stroke-width="1"/>
-        <text x="54" y="446" class="t-dim" font-size="10" font-weight="600">04 / 再次面试验证</text>
+        <text x="54" y="446" class="t-dim" font-size="10" font-weight="600">04 / 表达训练与能力补课</text>
+
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="lane" data-composition-frame-id="lane-4" x="40" y="548" width="1159" height="104" rx="10" class="c-lane" stroke-width="1"/>
+        <text x="54" y="570" class="t-dim" font-size="10" font-weight="600">05 / 再次面试验证</text>
 
         <!-- Phase headers -->
 
@@ -329,158 +332,190 @@ rect.c-bg-rect { fill: var(--bg); }
 
 
         <!-- Edge paths -->
-        <path data-edge-from="cross_review" data-edge-to="study_work" data-edge-key="0" data-composition-points="900.4,367;928.4,367" d="M 900.4 367 L 928.4 367" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="humanize_work" data-edge-to="project_check" data-edge-key="1" data-composition-points="446,119;474,119" d="M 446 119 L 474 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="jd_mock" data-edge-to="raw_records" data-edge-label="逐层记录" data-edge-key="2" data-composition-points="566.5,269;566.5,285;807.9,285;807.9,269" d="M 566.5 269 L 566.5 285 L 807.9 285 L 807.9 269" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="project_check" data-edge-to="jd_mock" data-edge-label="自主选择进入" data-edge-key="3" data-composition-points="659,119;675,119;675,166;566.5,166;566.5,217" d="M 659 119 L 675 119 L 675 166 L 566.5 166 L 566.5 217" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="4" data-composition-points="474,119;458,119;458,420;566.5,420;566.5,393" d="M 474 119 L 458 119 L 458 420 L 566.5 420 L 566.5 393" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="5" data-composition-points="900.4,243;916.4,243;916.4,290;807.9,290;807.9,341" d="M 900.4 243 L 916.4 243 L 916.4 290 L 807.9 290 L 807.9 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="6" data-composition-points="900.4,243;1211,243;1211,325;566.5,325;566.5,341" d="M 900.4 243 L 1211 243 L 1211 325 L 566.5 325 L 566.5 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="7" data-composition-points="1113.4,491;1129.4,491;1129.4,160;807.9,160;807.9,217" d="M 1113.4 491 L 1129.4 491 L 1129.4 160 L 807.9 160 L 807.9 217" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="resume_work" data-edge-to="humanize_work" data-edge-key="8" data-composition-points="233,119;261,119" d="M 233 119 L 261 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="9" data-composition-points="474,367;458,367;458,36;566.5,36;566.5,93" d="M 474 367 L 458 367 L 458 36 L 566.5 36 L 566.5 93" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
-        <path data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="10" data-composition-points="566.5,393;566.5,491;928.4,491" d="M 566.5 393 L 566.5 491 L 928.4 491" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
-        <path data-edge-from="study_work" data-edge-to="repeat_mock" data-edge-key="11" data-composition-points="1020.9,393;1020.9,465" d="M 1020.9 393 L 1020.9 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="analysis_report" data-edge-to="resume_work" data-edge-label="用户选择优化" data-edge-key="0" data-composition-points="353.5,145;353.5,166;249,166;249,236;233,236" d="M 353.5 145 L 353.5 166 L 249 166 L 249 236 L 233 236" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="cross_review" data-edge-to="study_work" data-edge-key="1" data-composition-points="900.4,491;928.4,491" d="M 900.4 491 L 928.4 491" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="humanize_work" data-edge-to="project_check" data-edge-key="2" data-composition-points="446,243;474,243" d="M 446 243 L 474 243" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="jd_mock" data-edge-to="raw_records" data-edge-label="逐层记录" data-edge-key="3" data-composition-points="566.5,393;566.5,409;807.9,409;807.9,393" d="M 566.5 393 L 566.5 409 L 807.9 409 L 807.9 393" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="project_check" data-edge-to="jd_mock" data-edge-label="自主选择进入" data-edge-key="4" data-composition-points="659,243;675,243;675,290;566.5,290;566.5,341" d="M 659 243 L 675 243 L 675 290 L 566.5 290 L 566.5 341" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="5" data-composition-points="474,243;458,243;458,544;566.5,544;566.5,517" d="M 474 243 L 458 243 L 458 544 L 566.5 544 L 566.5 517" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="6" data-composition-points="900.4,367;916.4,367;916.4,414;807.9,414;807.9,465" d="M 900.4 367 L 916.4 367 L 916.4 414 L 807.9 414 L 807.9 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="7" data-composition-points="900.4,367;1211,367;1211,449;566.5,449;566.5,465" d="M 900.4 367 L 1211 367 L 1211 449 L 566.5 449 L 566.5 465" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="8" data-composition-points="1113.4,615;1129.4,615;1129.4,284;807.9,284;807.9,341" d="M 1113.4 615 L 1129.4 615 L 1129.4 284 L 807.9 284 L 807.9 341" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="resume_analyze" data-edge-to="analysis_report" data-edge-key="9" data-composition-points="233,119;261,119" d="M 233 119 L 261 119" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="resume_work" data-edge-to="humanize_work" data-edge-key="10" data-composition-points="140.5,269;140.5,285;353.5,285;353.5,269" d="M 140.5 269 L 140.5 285 L 353.5 285 L 353.5 269" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="11" data-composition-points="474,491;458,491;458,160;566.5,160;566.5,217" d="M 474 491 L 458 491 L 458 160 L 566.5 160 L 566.5 217" class="a-dashed" stroke-width="1.4" marker-end="url(#arrowhead-dashed)"/>
+        <path data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="12" data-composition-points="566.5,517;566.5,615;928.4,615" d="M 566.5 517 L 566.5 615 L 928.4 615" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
+        <path data-edge-from="study_work" data-edge-to="repeat_mock" data-edge-key="13" data-composition-points="1020.9,517;1020.9,589" d="M 1020.9 517 L 1020.9 589" class="a-default" stroke-width="1.4" marker-end="url(#arrowhead)"/>
 
         <!-- Nodes -->
-        <g id="node-resume_work" data-node-id="resume_work" data-node-label="简历生成 / 优化" tabindex="0" role="button" aria-label="聚焦简历生成 / 优化，整理真实经历与项目, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="整理真实经历与项目" data-node-context="简历与项目准备">
-          <title>简历生成 / 优化 · 整理真实经历与项目 · 简历与项目准备</title>
+        <g id="node-resume_analyze" data-node-id="resume_analyze" data-node-label="简历分析" tabindex="0" role="button" aria-label="聚焦简历分析，只分析，不改写, 已有简历 · 独立分析（无 JD）" aria-pressed="false" data-node-kind="backend" data-node-sublabel="只分析，不改写" data-node-context="已有简历 · 独立分析（无 JD）">
+          <title>简历分析 · 只分析，不改写 · 已有简历 · 独立分析（无 JD）</title>
           <rect x="48" y="93" width="185" height="52" rx="6" class="c-mask"/>
           <rect x="48" y="93" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(54 99) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="140.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">简历生成 / 优化</text>
-          <text x="140.5" y="131" class="t-muted" font-size="8" text-anchor="middle">整理真实经历与项目</text>
+          <text data-node-label="" x="140.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">简历分析</text>
+          <text x="140.5" y="131" class="t-muted" font-size="8" text-anchor="middle">只分析，不改写</text>
         </g>
 
-        <g id="node-humanize_work" data-node-id="humanize_work" data-node-label="简历去模板化（可选）" tabindex="0" role="button" aria-label="聚焦简历去模板化（可选），保护事实与职责边界, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="保护事实与职责边界" data-node-context="简历与项目准备">
-          <title>简历去模板化（可选） · 保护事实与职责边界 · 简历与项目准备</title>
+        <g id="node-analysis_report" data-node-id="analysis_report" data-node-label="优点与不足报告" tabindex="0" role="button" aria-label="聚焦优点与不足报告，原文依据 · 补充方向 · 可结束, 已有简历 · 独立分析（无 JD）" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="原文依据 · 补充方向 · 可结束" data-node-context="已有简历 · 独立分析（无 JD）">
+          <title>优点与不足报告 · 原文依据 · 补充方向 · 可结束 · 已有简历 · 独立分析（无 JD）</title>
           <rect x="261" y="93" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="261" y="93" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(267 99) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" x="353.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">简历去模板化（可选）</text>
-          <text x="353.5" y="131" class="t-muted" font-size="8" text-anchor="middle">保护事实与职责边界</text>
-        </g>
-
-        <g id="node-project_check" data-node-id="project_check" data-node-label="项目自查（可选，无 JD）" tabindex="0" role="button" aria-label="聚焦项目自查（可选，无 JD），出题 → 填写 → 回答评估, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="出题 → 填写 → 回答评估" data-node-context="简历与项目准备">
-          <title>项目自查（可选，无 JD） · 出题 → 填写 → 回答评估 · 简历与项目准备</title>
-          <rect x="474" y="93" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="474" y="93" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 99) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" x="566.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">项目自查（可选，无 JD）</text>
-          <text x="566.5" y="131" class="t-muted" font-size="8" text-anchor="middle">出题 → 填写 → 回答评估</text>
-        </g>
-
-        <g id="node-jd_mock" data-node-id="jd_mock" data-node-label="模拟面试" tabindex="0" role="button" aria-label="聚焦模拟面试，简历 + 完整 JD, 模拟面试与原始记录" aria-pressed="false" data-node-kind="backend" data-node-sublabel="简历 + 完整 JD" data-node-context="模拟面试与原始记录">
-          <title>模拟面试 · 简历 + 完整 JD · 模拟面试与原始记录</title>
-          <rect x="474" y="217" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="474" y="217" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 223) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" x="566.5" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">模拟面试</text>
-          <text x="566.5" y="255" class="t-muted" font-size="8" text-anchor="middle">简历 + 完整 JD</text>
-        </g>
-
-        <g id="node-raw_records" data-node-id="raw_records" data-node-label="原始面试记录" tabindex="0" role="button" aria-label="聚焦原始面试记录，interviews/, 模拟面试与原始记录" aria-pressed="false" data-node-kind="database" data-node-sublabel="interviews/" data-node-context="模拟面试与原始记录">
-          <title>原始面试记录 · interviews/ · 模拟面试与原始记录</title>
-          <rect x="715.4" y="217" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="715.4" y="217" width="185" height="52" rx="6" class="c-database" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(721.4 223) scale(0.6875)">
-            <ellipse cx="8" cy="4" rx="5" ry="2"/>
-            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
-          </g>
-          <text data-node-label="" x="807.9" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">原始面试记录</text>
-          <text x="807.9" y="255" class="t-muted" font-size="8" text-anchor="middle">interviews/</text>
-        </g>
-
-        <g id="node-single_coach" data-node-id="single_coach" data-node-label="单题回答辅导（可选）" tabindex="0" role="button" aria-label="聚焦单题回答辅导（可选），展开思路与表达训练, 表达训练与能力补课" aria-pressed="false" data-node-kind="backend" data-node-sublabel="展开思路与表达训练" data-node-context="表达训练与能力补课">
-          <title>单题回答辅导（可选） · 展开思路与表达训练 · 表达训练与能力补课</title>
-          <rect x="474" y="341" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="474" y="341" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 347) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" x="566.5" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">单题回答辅导（可选）</text>
-          <text x="566.5" y="379" class="t-muted" font-size="8" text-anchor="middle">展开思路与表达训练</text>
-        </g>
-
-        <g id="node-cross_review" data-node-id="cross_review" data-node-label="跨场聚合复盘" tabindex="0" role="button" aria-label="聚焦跨场聚合复盘，至少 2 场 · 聚合原始记录, 表达训练与能力补课" aria-pressed="false" data-node-kind="backend" data-node-sublabel="至少 2 场 · 聚合原始记录" data-node-context="表达训练与能力补课">
-          <title>跨场聚合复盘 · 至少 2 场 · 聚合原始记录 · 表达训练与能力补课</title>
-          <rect x="715.4" y="341" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="715.4" y="341" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(721.4 347) scale(0.6875)">
-            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
-          </g>
-          <text data-node-label="" x="807.9" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">跨场聚合复盘</text>
-          <text x="807.9" y="379" class="t-muted" font-size="8" text-anchor="middle">至少 2 场 · 聚合原始记录</text>
-        </g>
-
-        <g id="node-study_work" data-node-id="study_work" data-node-label="针对性补课" tabindex="0" role="button" aria-label="聚焦针对性补课，P0 / P1 / P2 优先级, 表达训练与能力补课" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="P0 / P1 / P2 优先级" data-node-context="表达训练与能力补课">
-          <title>针对性补课 · P0 / P1 / P2 优先级 · 表达训练与能力补课</title>
-          <rect x="928.4" y="341" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="928.4" y="341" width="185" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(934.4 347) scale(0.6875)">
+          <rect x="261" y="93" width="185" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(267 99) scale(0.6875)">
             <rect x="2" y="3" width="12" height="10" rx="2"/>
             <path d="M2 6.5h12"/>
             <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
-          <text data-node-label="" x="1020.9" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">针对性补课</text>
-          <text x="1020.9" y="379" class="t-muted" font-size="8" text-anchor="middle">P0 / P1 / P2 优先级</text>
+          <text data-node-label="" x="353.5" y="114" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">优点与不足报告</text>
+          <text x="353.5" y="131" class="t-muted" font-size="8" text-anchor="middle">原文依据 · 补充方向 · 可结束</text>
+        </g>
+
+        <g id="node-resume_work" data-node-id="resume_work" data-node-label="简历生成 / 优化" tabindex="0" role="button" aria-label="聚焦简历生成 / 优化，整理真实经历与项目, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="整理真实经历与项目" data-node-context="简历与项目准备">
+          <title>简历生成 / 优化 · 整理真实经历与项目 · 简历与项目准备</title>
+          <rect x="48" y="217" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="48" y="217" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(54 223) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="140.5" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">简历生成 / 优化</text>
+          <text x="140.5" y="255" class="t-muted" font-size="8" text-anchor="middle">整理真实经历与项目</text>
+        </g>
+
+        <g id="node-humanize_work" data-node-id="humanize_work" data-node-label="简历去模板化（可选）" tabindex="0" role="button" aria-label="聚焦简历去模板化（可选），保护事实与职责边界, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="保护事实与职责边界" data-node-context="简历与项目准备">
+          <title>简历去模板化（可选） · 保护事实与职责边界 · 简历与项目准备</title>
+          <rect x="261" y="217" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="261" y="217" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(267 223) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="353.5" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">简历去模板化（可选）</text>
+          <text x="353.5" y="255" class="t-muted" font-size="8" text-anchor="middle">保护事实与职责边界</text>
+        </g>
+
+        <g id="node-project_check" data-node-id="project_check" data-node-label="项目自查（可选，无 JD）" tabindex="0" role="button" aria-label="聚焦项目自查（可选，无 JD），出题 → 填写 → 回答评估, 简历与项目准备" aria-pressed="false" data-node-kind="backend" data-node-sublabel="出题 → 填写 → 回答评估" data-node-context="简历与项目准备">
+          <title>项目自查（可选，无 JD） · 出题 → 填写 → 回答评估 · 简历与项目准备</title>
+          <rect x="474" y="217" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="474" y="217" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 223) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="566.5" y="238" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">项目自查（可选，无 JD）</text>
+          <text x="566.5" y="255" class="t-muted" font-size="8" text-anchor="middle">出题 → 填写 → 回答评估</text>
+        </g>
+
+        <g id="node-jd_mock" data-node-id="jd_mock" data-node-label="模拟面试" tabindex="0" role="button" aria-label="聚焦模拟面试，简历 + 完整 JD, 模拟面试与原始记录" aria-pressed="false" data-node-kind="backend" data-node-sublabel="简历 + 完整 JD" data-node-context="模拟面试与原始记录">
+          <title>模拟面试 · 简历 + 完整 JD · 模拟面试与原始记录</title>
+          <rect x="474" y="341" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="474" y="341" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 347) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="566.5" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">模拟面试</text>
+          <text x="566.5" y="379" class="t-muted" font-size="8" text-anchor="middle">简历 + 完整 JD</text>
+        </g>
+
+        <g id="node-raw_records" data-node-id="raw_records" data-node-label="原始面试记录" tabindex="0" role="button" aria-label="聚焦原始面试记录，interviews/, 模拟面试与原始记录" aria-pressed="false" data-node-kind="database" data-node-sublabel="interviews/" data-node-context="模拟面试与原始记录">
+          <title>原始面试记录 · interviews/ · 模拟面试与原始记录</title>
+          <rect x="715.4" y="341" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="715.4" y="341" width="185" height="52" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(721.4 347) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" x="807.9" y="362" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">原始面试记录</text>
+          <text x="807.9" y="379" class="t-muted" font-size="8" text-anchor="middle">interviews/</text>
+        </g>
+
+        <g id="node-single_coach" data-node-id="single_coach" data-node-label="单题回答辅导（可选）" tabindex="0" role="button" aria-label="聚焦单题回答辅导（可选），展开思路与表达训练, 表达训练与能力补课" aria-pressed="false" data-node-kind="backend" data-node-sublabel="展开思路与表达训练" data-node-context="表达训练与能力补课">
+          <title>单题回答辅导（可选） · 展开思路与表达训练 · 表达训练与能力补课</title>
+          <rect x="474" y="465" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="474" y="465" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(480 471) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="566.5" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">单题回答辅导（可选）</text>
+          <text x="566.5" y="503" class="t-muted" font-size="8" text-anchor="middle">展开思路与表达训练</text>
+        </g>
+
+        <g id="node-cross_review" data-node-id="cross_review" data-node-label="跨场聚合复盘" tabindex="0" role="button" aria-label="聚焦跨场聚合复盘，至少 2 场 · 聚合原始记录, 表达训练与能力补课" aria-pressed="false" data-node-kind="backend" data-node-sublabel="至少 2 场 · 聚合原始记录" data-node-context="表达训练与能力补课">
+          <title>跨场聚合复盘 · 至少 2 场 · 聚合原始记录 · 表达训练与能力补课</title>
+          <rect x="715.4" y="465" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="715.4" y="465" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(721.4 471) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" x="807.9" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">跨场聚合复盘</text>
+          <text x="807.9" y="503" class="t-muted" font-size="8" text-anchor="middle">至少 2 场 · 聚合原始记录</text>
+        </g>
+
+        <g id="node-study_work" data-node-id="study_work" data-node-label="针对性补课" tabindex="0" role="button" aria-label="聚焦针对性补课，P0 / P1 / P2 优先级, 表达训练与能力补课" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="P0 / P1 / P2 优先级" data-node-context="表达训练与能力补课">
+          <title>针对性补课 · P0 / P1 / P2 优先级 · 表达训练与能力补课</title>
+          <rect x="928.4" y="465" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="928.4" y="465" width="185" height="52" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(934.4 471) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" x="1020.9" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">针对性补课</text>
+          <text x="1020.9" y="503" class="t-muted" font-size="8" text-anchor="middle">P0 / P1 / P2 优先级</text>
         </g>
 
         <g id="node-repeat_mock" data-node-id="repeat_mock" data-node-label="再次模拟面试" tabindex="0" role="button" aria-label="聚焦再次模拟面试，验证表达与能力改进, 再次面试验证" aria-pressed="false" data-node-kind="backend" data-node-sublabel="验证表达与能力改进" data-node-context="再次面试验证">
           <title>再次模拟面试 · 验证表达与能力改进 · 再次面试验证</title>
-          <rect x="928.4" y="465" width="185" height="52" rx="6" class="c-mask"/>
-          <rect x="928.4" y="465" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
-          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(934.4 471) scale(0.6875)">
+          <rect x="928.4" y="589" width="185" height="52" rx="6" class="c-mask"/>
+          <rect x="928.4" y="589" width="185" height="52" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(934.4 595) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="1020.9" y="486" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">再次模拟面试</text>
-          <text x="1020.9" y="503" class="t-muted" font-size="8" text-anchor="middle">验证表达与能力改进</text>
+          <text data-node-label="" x="1020.9" y="610" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">再次模拟面试</text>
+          <text x="1020.9" y="627" class="t-muted" font-size="8" text-anchor="middle">验证表达与能力改进</text>
         </g>
 
         <!-- Edge labels -->
-
-
-        <g data-edge-from="jd_mock" data-edge-to="raw_records" data-edge-label="逐层记录" data-edge-key="2">
-          <rect x="663" y="265" width="48.4" height="14" rx="3" class="c-mask"/>
-          <text x="687.2" y="275" class="t-muted" font-size="8" text-anchor="middle">逐层记录</text>
-        </g>
-        <g data-edge-from="project_check" data-edge-to="jd_mock" data-edge-label="自主选择进入" data-edge-key="3">
-          <rect x="586.95" y="146" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="620.75" y="156" class="t-muted" font-size="8" text-anchor="middle">自主选择进入</text>
-        </g>
-        <g data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="4">
-          <rect x="473.65" y="400" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="512.25" y="410" class="t-database" font-size="8" text-anchor="middle">选题诊断与训练</text>
-        </g>
-        <g data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="5">
-          <rect x="828.35" y="270" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="862.15" y="280" class="t-muted" font-size="8" text-anchor="middle">多场原始证据</text>
-        </g>
-        <g data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="6">
-          <rect x="854.95" y="305" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="888.75" y="315" class="t-muted" font-size="8" text-anchor="middle">单题原始回答</text>
-        </g>
-        <g data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="7">
-          <rect x="939.6500000000001" y="140" width="58" height="14" rx="3" class="c-mask"/>
-          <text x="968.6500000000001" y="150" class="t-database" font-size="8" text-anchor="middle">积累新记录</text>
+        <g data-edge-from="analysis_report" data-edge-to="resume_work" data-edge-label="用户选择优化" data-edge-key="0">
+          <rect x="267.45" y="146" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="301.25" y="156" class="t-database" font-size="8" text-anchor="middle">用户选择优化</text>
         </g>
 
-        <g data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="9">
-          <rect x="473.65" y="16" width="77.2" height="14" rx="3" class="c-mask"/>
-          <text x="512.25" y="26" class="t-database" font-size="8" text-anchor="middle">用户重答后复评</text>
+
+        <g data-edge-from="jd_mock" data-edge-to="raw_records" data-edge-label="逐层记录" data-edge-key="3">
+          <rect x="663" y="389" width="48.4" height="14" rx="3" class="c-mask"/>
+          <text x="687.2" y="399" class="t-muted" font-size="8" text-anchor="middle">逐层记录</text>
         </g>
-        <g data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="10">
-          <rect x="713.6500000000001" y="471" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="747.45" y="481" class="t-muted" font-size="8" text-anchor="middle">练习后再验证</text>
+        <g data-edge-from="project_check" data-edge-to="jd_mock" data-edge-label="自主选择进入" data-edge-key="4">
+          <rect x="586.95" y="270" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="620.75" y="280" class="t-muted" font-size="8" text-anchor="middle">自主选择进入</text>
+        </g>
+        <g data-edge-from="project_check" data-edge-to="single_coach" data-edge-label="选题诊断与训练" data-edge-key="5">
+          <rect x="473.65" y="524" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="512.25" y="534" class="t-database" font-size="8" text-anchor="middle">选题诊断与训练</text>
+        </g>
+        <g data-edge-from="raw_records" data-edge-to="cross_review" data-edge-label="多场原始证据" data-edge-key="6">
+          <rect x="828.35" y="394" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="862.15" y="404" class="t-muted" font-size="8" text-anchor="middle">多场原始证据</text>
+        </g>
+        <g data-edge-from="raw_records" data-edge-to="single_coach" data-edge-label="单题原始回答" data-edge-key="7">
+          <rect x="854.95" y="429" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="888.75" y="439" class="t-muted" font-size="8" text-anchor="middle">单题原始回答</text>
+        </g>
+        <g data-edge-from="repeat_mock" data-edge-to="raw_records" data-edge-label="积累新记录" data-edge-key="8">
+          <rect x="939.6500000000001" y="264" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="968.6500000000001" y="274" class="t-database" font-size="8" text-anchor="middle">积累新记录</text>
+        </g>
+
+
+        <g data-edge-from="single_coach" data-edge-to="project_check" data-edge-label="用户重答后复评" data-edge-key="11">
+          <rect x="473.65" y="140" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="512.25" y="150" class="t-database" font-size="8" text-anchor="middle">用户重答后复评</text>
+        </g>
+        <g data-edge-from="single_coach" data-edge-to="repeat_mock" data-edge-label="练习后再验证" data-edge-key="12">
+          <rect x="713.6500000000001" y="595" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="747.45" y="605" class="t-muted" font-size="8" text-anchor="middle">练习后再验证</text>
         </g>
 
 

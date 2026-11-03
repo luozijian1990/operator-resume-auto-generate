@@ -1,13 +1,14 @@
 # 运维 / SRE 求职工作流
 
-> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历生成与优化、项目自查，到 JD 模拟面试，再到单题表达训练、跨场复盘和补课计划。
+> 面向运维、DevOps、SRE 和平台工程岗位的 AI Skill 工作流：从简历分析、生成与优化、项目自查，到 JD 模拟面试，再到单题表达训练、跨场复盘和补课计划。
 
 用真实经历写简历，通过项目自查梳理自己的业务理解和技术实践，再用目标 JD 检验匹配度、用结构化面试记录发现反复出现的短板，形成可以重复运行的训练流程。
 
 ## 你可以用它做什么
 
 - 没有现成简历：从真实经历中整理出可用于求职的项目描述
-- 已有简历：诊断 STAR、技术深度、量化结果及目标 JD 匹配度
+- 已有简历，只想看看优缺点：独立分析原文、STAR、贡献与成果依据，不要求 JD，不自动改写
+- 已有简历，需要改写或岗位对齐：诊断并优化表达，或评估目标 JD 匹配度
 - 简历模板感太强：降低 AI 腔，同时保护事实、职责边界和 ATS 关键词
 - 简历已完成：不结合 JD，生成项目自查题，填写回答后评估项目熟悉程度
 - 准备面试：针对简历和目标 JD 进行递进式模拟面试
@@ -24,16 +25,18 @@
   <img alt="运维 / SRE 求职训练闭环" src="https://raw.githubusercontent.com/luozijian1990/operator-resume-auto-generate/main/docs/job-search-workflow-light.svg">
 </picture>
 
-图中的项目自查和单题辅导均为可选环节。单题辅导可读取自查题单中的原回答，也可读取原始面试记录；跨场复盘只聚合原始面试记录，辅导报告不作为其输入。自查辅导后由用户重新作答，再生成新版评估。
+图中的简历分析是独立入口：读取已有简历，输出优点与不足报告后即可结束；仅当用户选择优化时才连接到简历优化，不是后续流程的必经步骤。项目自查和单题辅导均为可选环节。单题辅导可读取自查题单中的原回答，也可读取原始面试记录；跨场复盘只聚合原始面试记录，辅导报告不作为其输入。自查辅导后由用户重新作答，再生成新版评估。
 
 流程图维护：[Archify 源文件](docs/job-search-workflow.workflow.json) · [自适应主题 SVG](docs/job-search-workflow.svg) · [更新说明](docs/workflow-diagram.md)。README 使用浅色、深色两份 SVG，更新时需一起导出。
 
-七个 Skill 可以独立使用，也可以串成完整流程：
+九个 Skill 可以独立使用，也可以串成完整流程：
 
 | Skill | 什么时候用 | 主要产出 |
 | --- | --- | --- |
+| `resume-analyzer` | 已有简历，只分析优点与不足，或拆解参考简历写法 | 有原文依据的独立报告、优先补充事实；无需 JD、不改写 |
+| `resume-project-selector` | 有完整 JD，需要从真实项目素材中选择组合 | 项目组合、顺序与表达重点建议 |
 | `resume-generator` | 没有简历，需要从经历开始整理 | 技术演进、业务痛点两种视角的项目描述 |
-| `resume-optimizer` | 已有简历，需要通用诊断或 JD 对齐 | 诊断报告、用户确认后的优化版简历 |
+| `resume-optimizer` | 已有简历，明确需要优化改写或 JD 匹配诊断 | 诊断报告、用户确认后的优化版简历 |
 | `resume-humanizer` | 简历太模板化、太像 AI | 风险诊断、用户确认后的去 AI 版简历 |
 | `resume-project-questions` | 简历完成后自查项目，或已填好自查回答 | 四级 Markdown 双视角题单、逐题评分与准备度建议；不涉及 JD |
 | `mock-interview` | 准备某个具体岗位的面试 | 匹配度评分、逐题追问和单场面试记录 |
@@ -45,6 +48,16 @@
 本项目以 Markdown Skill 和参考资料为主，无需启动应用服务。使用支持 Skill 的 AI 编程助手打开仓库，然后直接描述你的任务。PDF 输入需要可用的文本提取或 OCR 工具；题单结构校验脚本使用 Python 3。
 
 ### 1. 选择起点
+
+只想分析已有简历时：
+
+```text
+使用 resume-analyzer 分析 resumes/my-resume.md。
+指出值得保留的优点、优先处理的不足，并引用原文说明原因和补充方向。
+不结合 JD，不改写简历。
+```
+
+报告默认在对话中交付；要求保存时写入 `resumes/analysis/`，不覆盖原简历。参考简历只用于提炼写法，不移植经历或成果。
 
 没有简历时：
 
@@ -105,6 +118,8 @@
 ### 3. 继续下一环
 
 ```text
+已有简历 → resume-analyzer → 优点与不足报告（可独立结束）
+                                  ↓ 用户选择优化
 resume-generator / resume-optimizer
                  ↓
        [resume-humanizer]
@@ -136,6 +151,7 @@ resume-generator / resume-optimizer
 
 | 产出 | 示例 |
 | --- | --- |
+| 独立简历分析（含虚构输入） | [示例-简历分析_陈同学.md](Example/示例-简历分析_陈同学.md) |
 | 技术演进视角简历 | [示例-简历_张三-技术视角.md](Example/示例-简历_张三-技术视角.md) |
 | 业务痛点视角简历 | [示例-简历_张三-业务痛点视角.md](Example/示例-简历_张三-业务痛点视角.md) |
 | 字节 SRE 模拟面试记录 | [示例-面试记录_字节-sre-p6.md](Example/示例-面试记录_字节-sre-p6.md) |
@@ -158,6 +174,10 @@ resume-generator / resume-optimizer
 </details>
 
 ## 核心设计
+
+### 先了解简历写得怎样
+
+`resume-analyzer` 同时分析优点与不足，每项引用原文说明依据。STAR 用于检查背景、目标、行动与结果的联系，不要求每条四段式或所有成果都带数字。报告区分明确问题、证据不足与待核实事项；“简历未体现”不等于“候选人不会”。报告本身即完整产出，不自动进入改写、项目自查或面试。
 
 ### 先检查能否讲清自己的项目
 
@@ -207,7 +227,9 @@ resume-generator / resume-optimizer
 
 ```text
 operation-resume-auto-generate/
-├── skills/                    # 七个 Skill 的唯一维护目录
+├── skills/                    # 九个 Skill 的唯一维护目录
+│   ├── resume-analyzer/
+│   ├── resume-project-selector/
 │   ├── resume-generator/
 │   ├── resume-optimizer/
 │   ├── resume-humanizer/
@@ -224,21 +246,22 @@ operation-resume-auto-generate/
 ├── interviews/
 │   └── SCHEMA.md              # 面试记录与聚合总结的数据契约
 ├── resumes/                   # 真实简历与改写产出，默认不入库
+│   ├── analysis/              # 独立简历分析报告
 │   └── project-prep/          # 项目题单、用户回答与独立评估报告
 ├── docs/                     # 流程图 Archify 源文件、SVG 与更新说明
-├── .agents/skills/            # Cursor / Codex 入口
+├── .codex-plugin/plugin.json # Codex 插件入口，自动发现 skills/
 ├── .agent/skills/             # Gemini / Antigravity 入口
 └── .claude/skills/            # Claude 入口
 ```
 
-`skills/` 是唯一维护位置，三个隐藏目录通过符号链接复用同一份内容，避免不同 AI 工具间的 Skill 副本发生漂移。
+`skills/` 是唯一维护位置。Codex 插件从该目录发现 Skill；保留的 `.agent/skills/` 与 `.claude/skills/` 通过符号链接提供兼容入口。
 
 ## AI 工具适配
 
 | AI 工具 | Skill 入口 |
 | --- | --- |
 | Claude Code / Claude.ai | `.claude/skills/` |
-| Cursor / Codex 风格工具 | `.agents/skills/` |
+| Codex | `.codex-plugin/plugin.json` → `skills/` |
 | Gemini / Antigravity | `.agent/skills/` |
 | 不支持 Skill 协议的工具 | 直接将 `skills/*/SKILL.md` 作为提示词使用 |
 
@@ -267,4 +290,4 @@ npx skills add luozijian1990/operator-resume-auto-generate
 npx skills add .
 ```
 
-插件清单位于 `.codex-plugin/plugin.json`，其中包含全部七个 Skill；同一份 Skill 定义可供 Codex 与 Claude 使用。
+插件清单位于 `.codex-plugin/plugin.json`，其中通过 `skills/` 发现全部九个 Skill；同一份 Skill 定义可供 Codex 与 Claude 使用。

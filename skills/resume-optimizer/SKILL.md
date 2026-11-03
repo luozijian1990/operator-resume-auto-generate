@@ -1,6 +1,6 @@
 ---
 name: resume-optimizer
-description: 用于用户已有 SRE、DevOps、平台工程或运维简历，希望做简历诊断、STAR/PDCA 改写、JD 匹配度评分、ATS 关键词对齐，或在 mock-interview 前生成优化版 Markdown 简历的场景。
+description: 用于用户已有 SRE、DevOps、平台工程或运维简历，明确希望优化改写、STAR/PDCA 改写、JD 匹配度评分、ATS 关键词对齐，或在 mock-interview 前生成优化版 Markdown 简历的场景。仅分析简历优缺点、不改写且不做 JD 匹配评分时使用 resume-analyzer。
 ---
 
 # 简历优化 Skill
@@ -17,7 +17,10 @@ description: 用于用户已有 SRE、DevOps、平台工程或运维简历，希
 本 skill 是 `resume-generator` 的 warm start 补充：
 
 - 没有简历、需要从项目模板生成 → 用 `resume-generator`
-- 已经有简历、需要诊断和优化 → 用 `resume-optimizer`
+- 已经有简历、只想了解优点和不足 → 用 `resume-analyzer`，报告交付即可结束
+- 已经有简历、明确需要优化改写或 JD 匹配评分 → 用 `resume-optimizer`
+
+已有 analyzer 报告时可用它定位问题，但仍需读取原简历核对事实。分析报告不代表用户授权改写；已明确授权的范围直接沿用。
 
 ## 简历顾问人设
 

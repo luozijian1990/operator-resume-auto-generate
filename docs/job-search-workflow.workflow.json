@@ -11,6 +11,10 @@
   },
   "lanes": [
     {
+      "id": "analysis_stage",
+      "label": "已有简历 · 独立分析（无 JD）"
+    },
+    {
       "id": "resume_stage",
       "label": "简历与项目准备"
     },
@@ -38,6 +42,24 @@
     "repeat_mock"
   ],
   "nodes": [
+    {
+      "id": "resume_analyze",
+      "lane": "analysis_stage",
+      "col": 0,
+      "type": "backend",
+      "label": "简历分析",
+      "sublabel": "只分析，不改写",
+      "width": 185
+    },
+    {
+      "id": "analysis_report",
+      "lane": "analysis_stage",
+      "col": 1,
+      "type": "frontend",
+      "label": "优点与不足报告",
+      "sublabel": "原文依据 · 补充方向 · 可结束",
+      "width": 185
+    },
     {
       "id": "resume_work",
       "lane": "resume_stage",
@@ -121,6 +143,17 @@
     }
   ],
   "edges": [
+    {
+      "from": "resume_analyze",
+      "to": "analysis_report"
+    },
+    {
+      "from": "analysis_report",
+      "to": "resume_work",
+      "label": "用户选择优化",
+      "role": "branch",
+      "variant": "dashed"
+    },
     {
       "from": "resume_work",
       "to": "humanize_work"
